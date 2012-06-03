@@ -1,0 +1,66 @@
+package VCD::VCloud_1_5::StaticRouteType;
+
+use Moose;
+
+use VCD::HasXML;
+
+extends 'VCD::VCloud_1_5::VCloudExtensibleType';
+
+has_xml 'Name' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Network' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'NextHopIp' => (is => 'rw', isa => 'VCD::VCloud_1_5::IpAddressType', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Interface' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+
+
+=head1 ATTRIBUTES
+
+=over
+
+=item Name
+
+=head1 API
+
+Available Since API: 1.5
+
+modifiable: always
+
+Name for the static route.
+
+=item Network
+
+=head1 API
+
+Available Since API: 1.5
+
+modifiable: always
+
+Network specification in CIDR.
+
+=item NextHopIp
+
+=head1 API
+
+Available Since API: 1.5
+
+modifiable: always
+
+IP Address of Next Hop router/gateway.
+
+=item Interface
+
+=head1 API
+
+Available Since API: 1.5
+
+modifiable: always
+
+Interface to use for static routing. Internal and External are the
+supported values.
+
+=back
+
+=cut
+
+
+1;
