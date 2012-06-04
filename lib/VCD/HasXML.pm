@@ -35,7 +35,7 @@ sub _make_builder {
         my $self = shift;
         my $xml_hash = $self->xml_hash->{$xml_name};
         if (ref $xml_hash) {
-            my @list = map { $subtype->new( xml_hash => $_, vcd_rest => $self->vcd_rest ) } @$xml_hash;
+            my @list = map { $subtype->new( xml_name => $xml_name, xml_hash => $_, vcd_rest => $self->vcd_rest ) } @$xml_hash;
             return \@list;
         }
         return $xml_hash;
@@ -44,11 +44,11 @@ sub _make_builder {
     return sub {
         my $self = shift;
         my $xml_hash = $self->xml_hash->{$xml_name};
-        return $type->new( xml_hash => $xml_hash, vcd_rest => $self->vcd_rest );
+        return $type->new( xml_name => $xml_name, xml_hash => $xml_hash, vcd_rest => $self->vcd_rest );
     } if ($type && $type ne 'Str');
 
     return sub { my $self = shift;
-        return (exists $self->xml_hash->{$xml_name})?$self->xml_hash->{$xml_name}:$self->xml_hash->{$name};
+        return $self->xml_hash->{$xml_name};
     };
 }
 
@@ -85,6 +85,11 @@ has xml_hash => (
     builder => '_build_xml_hash',
 );
 
+has xml_name => (
+    is => 'rw',
+    isa => 'Str',
+);
+
 has vcd_rest => (
     is => 'rw',
     isa => 'VCD::REST',
@@ -94,7 +99,10 @@ has vcd_rest => (
 sub _build_xml_hash {
     my $self = shift;
 
-    return $self->vcd_rest->get($self->href);
+    my $xml = $self->vcd_rest->get($self->href);
+    my ($name) = keys %$xml;
+    $self->xml_name($name);
+    return $xml->{$name};
 }
 
 1;

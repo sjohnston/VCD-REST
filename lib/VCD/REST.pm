@@ -98,9 +98,10 @@ sub _build_session {
     }
     $self->auth( $res->header('x-vcloud-authorization') );
 
-    my $args = XMLin($res->decoded_content, NsExpand => 1, KeyAttr => []);
+    my $args = XMLin($res->decoded_content, NsExpand => 1, KeyAttr => [], KeepRoot => 1);
 
-    return VCD::VCloud_1_5::SessionType->new( xml_hash => $args, vcd_rest => $self );
+    my ($name) = keys %$args;
+    return VCD::VCloud_1_5::SessionType->new( xml_name => $name, xml_hash => $args->{$name}, vcd_rest => $self );
 }
 
 sub request {
@@ -133,7 +134,7 @@ sub get {
         die $res->status_line;
     }
 
-    return XMLin($res->decoded_content, NsExpand => 1, KeyAttr => []);
+    return XMLin($res->decoded_content, NsExpand => 1, KeyAttr => [], KeepRoot => 1);
 }
 
 __PACKAGE__->meta->make_immutable;
