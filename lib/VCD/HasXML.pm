@@ -26,10 +26,16 @@ sub has_xml {
 sub _make_builder {
     my ($attr, $xml_name, $name) = @_;
 
-    my $subtype = $attr->type_constraint->type_parameter->name
-        if ($attr->has_type_constraint && $attr->type_constraint->can('type_parameter'));
-
     my $type = $attr->type_constraint->name if ($attr->has_type_constraint);
+
+    my $subtype;
+    if ($type && $type =~ /^ArrayRef/) {
+        $subtype = $attr->type_constraint->type_parameter->name;
+    }
+
+    if ($type && $type =~ /^Maybe/) {
+        $type = $attr->type_constraint->type_parameter->name;
+    }
 
     return sub {
         my $self = shift;
@@ -48,7 +54,9 @@ sub _make_builder {
     } if ($type && $type ne 'Str');
 
     return sub { my $self = shift;
-        return $self->xml_hash->{$xml_name};
+        my $value = $self->xml_hash->{$xml_name};
+        return if (ref $value eq 'HASH' && !%$value);
+        return $value;
     };
 }
 
@@ -103,6 +111,46 @@ sub _build_xml_hash {
     my ($name) = keys %$xml;
     $self->xml_name($name);
     return $xml->{$name};
+}
+
+sub to_xml_string {
+    my ($self) = @_;
+
+    my $doc = XML::LibXML::Document->new('1.0', 'UTF-8');
+    my $node = $self->to_xml($doc);
+    $doc->setDocumentElement($node);
+
+    return $doc->toString;
+}
+
+sub to_xml {
+    my ($self, $doc) = @_;
+
+    $doc ||= XML::LibXML::Document->new('UTF-8', '1.0');
+
+    my $hash = $self->xml_hash;
+    my ($ns, $name) = $self->xml_name =~ m/^\{(.*?)\}(.*)$/;
+
+    my $node;
+    if ($ns) {
+        $node = $doc->createElementNS($ns, $name);
+    }
+    else {
+        $node = $doc->createElementNS('http://www.vmware.com/vcloud/v1.5', $self->xml_name);
+    }
+
+    my $meta = $self->meta;
+
+    foreach my $attr ( $meta->get_all_attributes ) {
+        my $type = $attr->type_constraint;
+        next if ($type && $type ne 'Str');
+        my $child = $doc->createElement($attr->name);
+        my $reader = $attr->get_read_method;
+        $child->appendChild( XML::LibXML::Text->new($self->$reader || " ") );
+        $node->appendChild($child);
+    }
+
+    return $node;
 }
 
 1;
