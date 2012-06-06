@@ -4,7 +4,7 @@ use Moose::Exporter;
 use List::Util qw(first);
 
 Moose::Exporter->setup_import_methods(
-    with_meta => ['has_xml', 'has_xml_link'],
+    with_meta => ['has_xml', 'has_xml_attr', 'has_xml_link'],
 );
 
 sub has_xml {
@@ -12,15 +12,20 @@ sub has_xml {
     my $name = shift;
     my %opts = @_;
 
-    my $ns = delete $opts{'namespace'};
-    my $xml_name = delete $opts{'xml_name'} || "{$ns}$name";
+    my $ns = $opts{'xml_namespace'};
+    my $xml_name = $opts{'xml_name'} || "{$ns}$name";
 
     $opts{'lazy'} = 1;
     $opts{'builder'} = "_build_$name";
+    $opts{'traits'} ||= ['VCD::XMLElement'];
 
     my $attr = $meta->add_attribute($name, %opts);
 
     $meta->add_method( "_build_$name" => _make_builder($attr, $xml_name, $name) );
+}
+
+sub has_xml_attr {
+    has_xml(@_, traits => ['VCD::XMLAttribute']);
 }
 
 sub _make_builder {
@@ -143,14 +148,41 @@ sub to_xml {
 
     foreach my $attr ( $meta->get_all_attributes ) {
         my $type = $attr->type_constraint;
-        next if ($type && $type ne 'Str');
-        my $child = $doc->createElement($attr->name);
+        next if ($type && $type !~ 'Str');
         my $reader = $attr->get_read_method;
-        $child->appendChild( XML::LibXML::Text->new($self->$reader || " ") );
-        $node->appendChild($child);
+        my $value = $self->$reader if ($reader);
+        if ($attr->can('to_xml')) {
+            $attr->to_xml($doc, $node, $value);
+        }
     }
 
     return $node;
+}
+
+package VCD::XMLAttribute;
+use Moose::Role;
+
+has xml_namespace => (is => 'ro', isa => 'Str');
+has xml_name => (is => 'rw', isa => 'Str');
+
+sub to_xml {
+    my ($self, $doc, $parent, $value) = @_;
+
+    $parent->setAttribute($self->name, $value);
+}
+
+package VCD::XMLElement;
+use Moose::Role;
+
+has xml_namespace => (is => 'ro', isa => 'Str');
+has xml_name => (is => 'rw', isa => 'Str');
+
+sub to_xml {
+    my ($self, $doc, $parent, $value) = @_;
+
+    my $child = $doc->createElement($self->name);
+    $child->appendChild( XML::LibXML::Text->new($value) ) if ($value);
+    $parent->appendChild($child);
 }
 
 1;
