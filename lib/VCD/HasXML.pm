@@ -77,7 +77,7 @@ sub has_xml_link {
     $opts{'builder'} = "_build_link_$name";
 
     my $attr = $meta->add_attribute($name, %opts);
-    my $class = $attr->type_constraint->name if ($attr->has_type_constraint);
+    my $class = $opts{'isa'};
 
     $meta->add_method( "_build_link_$name" => sub {
             my $self = shift;
