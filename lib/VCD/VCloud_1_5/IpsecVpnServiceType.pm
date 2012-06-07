@@ -6,9 +6,13 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::NetworkServiceType';
 
-has_xml 'ExternalIpAddress' => (is => 'ro', isa => 'VCD::VCloud_1_5::IpAddressType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'PublicIpAddress' => (is => 'rw', isa => 'VCD::VCloud_1_5::IpAddressType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'IpsecVpnTunnel' => (is => 'rw', isa => 'ArrayRef[VCD::VCloud_1_5::IpsecVpnTunnelType]', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'ExternalIpAddress' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::IpAddressType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'PublicIpAddress' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::IpAddressType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IpsecVpnTunnel' => (is => 'rw', isa => 'ArrayRef[VCD::VCloud_1_5::IpsecVpnTunnelType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::IpsecVpnTunnelType;
+use VCD::VCloud_1_5::IpAddressType;
+
 
 =head1 API
 

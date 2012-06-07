@@ -6,9 +6,12 @@ use VCD::HasXML;
 
 with 'VCD::HasXMLTrait';
 
-has_xml 'id' => (is => 'rw', namespace => 'http://schemas.dmtf.org/ovf/environment/1', xml_name => 'id');
-has_xml 'Section' => (is => 'rw', isa => 'ArrayRef[Str]', namespace => 'http://schemas.dmtf.org/ovf/environment/1');
-has_xml 'Entity' => (is => 'rw', isa => 'ArrayRef[VCD::External::OVF::Env::Entity_Type]', namespace => 'http://schemas.dmtf.org/ovf/environment/1');
+has_xml_attr 'id' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1', xml_name => 'id');
+has_xml 'Section' => (is => 'rw', isa => 'ArrayRef[Str]', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
+has_xml 'Entity' => (is => 'rw', isa => 'ArrayRef[VCD::External::OVF::Env::Entity_Type]', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
+
+use VCD::External::OVF::Env::Entity_Type;
+
 
 =head1 DESCRIPTION
 

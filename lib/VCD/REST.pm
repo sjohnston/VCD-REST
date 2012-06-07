@@ -134,6 +134,7 @@ sub get {
         die $res->status_line;
     }
 
+    #warn $res->decoded_content;
     return XMLin($res->decoded_content, NsExpand => 1, KeyAttr => [], KeepRoot => 1);
 }
 

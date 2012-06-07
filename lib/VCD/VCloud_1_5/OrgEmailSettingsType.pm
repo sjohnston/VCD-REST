@@ -6,13 +6,16 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::ResourceType';
 
-has_xml 'IsDefaultSmtpServer' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'IsDefaultOrgEmail' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'FromEmailAddress' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'DefaultSubjectPrefix' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'IsAlertEmailToAllAdmins' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'AlertEmailTo' => (is => 'ro', isa => 'ArrayRef[Str]', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'SmtpServerSettings' => (is => 'rw', isa => 'VCD::VCloud_1_5::SmtpServerSettingsType', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IsDefaultSmtpServer' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IsDefaultOrgEmail' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'FromEmailAddress' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'DefaultSubjectPrefix' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IsAlertEmailToAllAdmins' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'AlertEmailTo' => (is => 'ro', isa => 'ArrayRef[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'SmtpServerSettings' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::SmtpServerSettingsType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::SmtpServerSettingsType;
+
 
 =head1 API
 

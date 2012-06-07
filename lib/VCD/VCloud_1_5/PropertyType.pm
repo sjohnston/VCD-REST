@@ -6,7 +6,9 @@ use VCD::HasXML;
 
 with 'VCD::HasXMLTrait';
 
-has_xml 'key' => (is => 'rw', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'key');
+has_xml_attr 'key' => (is => 'rw', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'key');
+
+
 
 =head1 API
 

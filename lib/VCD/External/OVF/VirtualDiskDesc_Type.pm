@@ -6,13 +6,15 @@ use VCD::HasXML;
 
 with 'VCD::HasXMLTrait';
 
-has_xml 'diskId' => (is => 'rw', namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'diskId');
-has_xml 'fileRef' => (is => 'rw', namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'fileRef');
-has_xml 'capacity' => (is => 'rw', namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'capacity');
-has_xml 'capacityAllocationUnits' => (is => 'rw', namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'capacityAllocationUnits');
-has_xml 'format' => (is => 'rw', namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'format');
-has_xml 'populatedSize' => (is => 'rw', namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'populatedSize');
-has_xml 'parentRef' => (is => 'rw', namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'parentRef');
+has_xml_attr 'diskId' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'diskId');
+has_xml_attr 'fileRef' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'fileRef');
+has_xml_attr 'capacity' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'capacity');
+has_xml_attr 'capacityAllocationUnits' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'capacityAllocationUnits');
+has_xml_attr 'format' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'format');
+has_xml_attr 'populatedSize' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'populatedSize');
+has_xml_attr 'parentRef' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'parentRef');
+
+
 
 =head1 DESCRIPTION
 

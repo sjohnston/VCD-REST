@@ -6,7 +6,9 @@ use VCD::HasXML;
 
 with 'VCD::HasXMLTrait';
 
-has_xml 'required' => (is => 'rw', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'required');
+has_xml_attr 'required' => (is => 'rw', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'required');
+
+
 
 =head1 API
 

@@ -7,6 +7,8 @@ use VCD::HasXML;
 extends 'VCD::External::VSSD::CIM_VirtualSystemSettingData_Type';
 
 
+
+
 =head1 DESCRIPTION
 
 Wrapper for CIM_VirtualSystemSettingData_Type

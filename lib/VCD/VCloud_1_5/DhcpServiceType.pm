@@ -6,9 +6,12 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::NetworkServiceType';
 
-has_xml 'DefaultLeaseTime' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'MaxLeaseTime' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'IpRange' => (is => 'rw', isa => 'VCD::VCloud_1_5::IpRangeType', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'DefaultLeaseTime' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'MaxLeaseTime' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IpRange' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::IpRangeType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::IpRangeType;
+
 
 =head1 DESCRIPTION
 

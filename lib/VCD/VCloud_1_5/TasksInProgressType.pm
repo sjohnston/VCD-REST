@@ -6,7 +6,10 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
-has_xml 'Task' => (is => 'ro', isa => 'ArrayRef[VCD::VCloud_1_5::TaskType]', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Task' => (is => 'ro', isa => 'ArrayRef[VCD::VCloud_1_5::TaskType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::TaskType;
+
 
 =head1 API
 

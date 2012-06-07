@@ -6,7 +6,9 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::ResourceType';
 
-has_xml 'Operation' => (is => 'rw', isa => 'ArrayRef[Str]', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Operation' => (is => 'rw', isa => 'ArrayRef[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+
 
 =head1 DESCRIPTION
 

@@ -6,18 +6,22 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::EntityType';
 
-has_xml 'status' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'status');
-has_xml 'operation' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'operation');
-has_xml 'operationName' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'operationName');
-has_xml 'startTime' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'startTime');
-has_xml 'endTime' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'endTime');
-has_xml 'expiryTime' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'expiryTime');
-has_xml 'Owner' => (is => 'ro', isa => 'VCD::VCloud_1_5::ReferenceType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Error' => (is => 'ro', isa => 'VCD::VCloud_1_5::ErrorType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'User' => (is => 'ro', isa => 'VCD::VCloud_1_5::ReferenceType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Organization' => (is => 'ro', isa => 'VCD::VCloud_1_5::ReferenceType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Progress' => (is => 'ro', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Params' => (is => 'ro', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml_attr 'status' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'status');
+has_xml_attr 'operation' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'operation');
+has_xml_attr 'operationName' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'operationName');
+has_xml_attr 'startTime' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'startTime');
+has_xml_attr 'endTime' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'endTime');
+has_xml_attr 'expiryTime' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'expiryTime');
+has_xml 'Owner' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Error' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::ErrorType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'User' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Organization' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Progress' => (is => 'ro', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Params' => (is => 'ro', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::ErrorType;
+use VCD::VCloud_1_5::ReferenceType;
+
 
 =head1 API
 

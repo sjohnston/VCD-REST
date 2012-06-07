@@ -6,7 +6,10 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
-has_xml 'IpRange' => (is => 'rw', isa => 'ArrayRef[VCD::VCloud_1_5::IpRangeType]', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IpRange' => (is => 'rw', isa => 'ArrayRef[VCD::VCloud_1_5::IpRangeType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::IpRangeType;
+
 
 =head1 API
 

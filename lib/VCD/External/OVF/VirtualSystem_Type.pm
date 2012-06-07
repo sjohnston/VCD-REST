@@ -7,6 +7,8 @@ use VCD::HasXML;
 extends 'VCD::External::OVF::Content_Type';
 
 
+
+
 =head1 DESCRIPTION
 
 Content describing a virtual system

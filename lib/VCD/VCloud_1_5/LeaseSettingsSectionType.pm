@@ -6,13 +6,16 @@ use VCD::HasXML;
 
 extends 'VCD::External::OVF::Section_Type';
 
-has_xml 'href' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'href');
-has_xml 'type' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'type');
-has_xml 'Link' => (is => 'ro', isa => 'ArrayRef[VCD::VCloud_1_5::LinkType]', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'DeploymentLeaseInSeconds' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'StorageLeaseInSeconds' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'DeploymentLeaseExpiration' => (is => 'ro', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'StorageLeaseExpiration' => (is => 'ro', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml_attr 'href' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'href');
+has_xml_attr 'type' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'type');
+has_xml 'Link' => (is => 'ro', isa => 'ArrayRef[VCD::VCloud_1_5::LinkType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'DeploymentLeaseInSeconds' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'StorageLeaseInSeconds' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'DeploymentLeaseExpiration' => (is => 'ro', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'StorageLeaseExpiration' => (is => 'ro', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::LinkType;
+
 
 =head1 API
 

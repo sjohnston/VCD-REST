@@ -6,7 +6,10 @@ use VCD::HasXML;
 
 with 'VCD::HasXMLTrait';
 
-has_xml 'File' => (is => 'rw', isa => 'ArrayRef[VCD::External::OVF::File_Type]', namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml 'File' => (is => 'rw', isa => 'ArrayRef[VCD::External::OVF::File_Type]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+
+use VCD::External::OVF::File_Type;
+
 
 =head1 DESCRIPTION
 

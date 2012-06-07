@@ -6,16 +6,20 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
-has_xml 'IsEnabled' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Description' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Policy' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Protocols' => (is => 'rw', isa => 'VCD::VCloud_1_5::FirewallRuleType_Protocols', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Port' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'DestinationIp' => (is => 'rw', isa => 'VCD::VCloud_1_5::FirewallIpAddressType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'SourcePort' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'SourceIp' => (is => 'rw', isa => 'VCD::VCloud_1_5::FirewallIpAddressType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Direction' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'EnableLogging' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IsEnabled' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Description' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Policy' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Protocols' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::FirewallRuleType_Protocols]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Port' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'DestinationIp' => (is => 'rw', isa => 'VCD::VCloud_1_5::FirewallIpAddressType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'SourcePort' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'SourceIp' => (is => 'rw', isa => 'VCD::VCloud_1_5::FirewallIpAddressType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Direction' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'EnableLogging' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::FirewallIpAddressType;
+use VCD::VCloud_1_5::FirewallRuleType_Protocols;
+
 
 =head1 API
 

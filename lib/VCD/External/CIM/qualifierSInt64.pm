@@ -6,7 +6,9 @@ use VCD::HasXML;
 
 extends 'VCD::External::CIM::cimLong';
 
-has_xml 'qualifier' => (is => 'rw', namespace => 'http://schemas.dmtf.org/wbem/wscim/1/common', xml_name => 'qualifier');
+has_xml_attr 'qualifier' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/wbem/wscim/1/common', xml_name => 'qualifier');
+
+
 
 
 

@@ -6,11 +6,15 @@ use VCD::HasXML;
 
 with 'VCD::HasXMLTrait';
 
-has_xml 'lang' => (is => 'rw', namespace => 'http://www.w3.org/XML/1998/namespace', xml_name => '{http://www.w3.org/XML/1998/namespace}lang');
-has_xml 'References' => (is => 'rw', isa => 'VCD::External::OVF::References_Type', namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
-has_xml 'Section' => (is => 'rw', isa => 'ArrayRef[Str]', namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
-has_xml 'Content' => (is => 'rw', isa => 'Str', namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
-has_xml 'Strings' => (is => 'rw', isa => 'ArrayRef[VCD::External::OVF::Strings_Type]', namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml_attr 'lang' => (is => 'rw', xml_namespace => 'http://www.w3.org/XML/1998/namespace', xml_name => '{http://www.w3.org/XML/1998/namespace}lang');
+has_xml 'References' => (is => 'rw', isa => 'VCD::External::OVF::References_Type', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml 'Section' => (is => 'rw', isa => 'ArrayRef[Str]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml 'Content' => (is => 'rw', isa => 'Str', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml 'Strings' => (is => 'rw', isa => 'ArrayRef[VCD::External::OVF::Strings_Type]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+
+use VCD::External::OVF::References_Type;
+use VCD::External::OVF::Strings_Type;
+
 
 =head1 DESCRIPTION
 

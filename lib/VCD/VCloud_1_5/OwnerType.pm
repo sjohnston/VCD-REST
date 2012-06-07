@@ -6,7 +6,10 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::ResourceType';
 
-has_xml 'User' => (is => 'ro', isa => 'VCD::VCloud_1_5::ReferenceType', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'User' => (is => 'ro', isa => 'VCD::VCloud_1_5::ReferenceType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::ReferenceType;
+
 
 =head1 API
 

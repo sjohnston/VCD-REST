@@ -6,12 +6,20 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::OrgType';
 
-has_xml 'Settings' => (is => 'rw', isa => 'VCD::VCloud_1_5::OrgSettingsType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Users' => (is => 'ro', isa => 'VCD::VCloud_1_5::UsersListType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Groups' => (is => 'ro', isa => 'VCD::VCloud_1_5::GroupsListType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Catalogs' => (is => 'ro', isa => 'VCD::VCloud_1_5::CatalogsListType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Vdcs' => (is => 'ro', isa => 'VCD::VCloud_1_5::VdcsType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Networks' => (is => 'ro', isa => 'VCD::VCloud_1_5::NetworksType', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Settings' => (is => 'rw', isa => 'VCD::VCloud_1_5::OrgSettingsType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Users' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::UsersListType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Groups' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::GroupsListType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Catalogs' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::CatalogsListType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Vdcs' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::VdcsType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Networks' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::NetworksType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::VdcsType;
+use VCD::VCloud_1_5::CatalogsListType;
+use VCD::VCloud_1_5::NetworksType;
+use VCD::VCloud_1_5::GroupsListType;
+use VCD::VCloud_1_5::UsersListType;
+use VCD::VCloud_1_5::OrgSettingsType;
+
 
 =head1 API
 

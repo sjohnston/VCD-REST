@@ -6,8 +6,10 @@ use VCD::HasXML;
 
 with 'VCD::HasXMLTrait';
 
-has_xml 'Id' => (is => 'ro', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Text' => (is => 'ro', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Id' => (is => 'ro', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Text' => (is => 'ro', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+
 
 =head1 API
 

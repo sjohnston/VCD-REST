@@ -6,7 +6,9 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::InstantiateVAppParamsType';
 
-has_xml 'AllEULAsAccepted' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'AllEULAsAccepted' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+
 
 =head1 API
 

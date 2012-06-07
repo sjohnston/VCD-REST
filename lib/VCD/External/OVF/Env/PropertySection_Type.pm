@@ -6,7 +6,10 @@ use VCD::HasXML;
 
 extends 'VCD::External::OVF::Env::Section_Type';
 
-has_xml 'Property' => (is => 'rw', isa => 'ArrayRef[VCD::External::OVF::Env::PropertySection_Type_Property]', namespace => 'http://schemas.dmtf.org/ovf/environment/1');
+has_xml 'Property' => (is => 'rw', isa => 'ArrayRef[VCD::External::OVF::Env::PropertySection_Type_Property]', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
+
+use VCD::External::OVF::Env::PropertySection_Type_Property;
+
 
 =head1 DESCRIPTION
 

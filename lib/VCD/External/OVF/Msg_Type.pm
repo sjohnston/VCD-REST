@@ -6,7 +6,9 @@ use VCD::HasXML;
 
 with 'VCD::HasXMLTrait';
 
-has_xml 'msgid' => (is => 'rw', namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'msgid');
+has_xml_attr 'msgid' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'msgid');
+
+
 
 =head1 DESCRIPTION
 

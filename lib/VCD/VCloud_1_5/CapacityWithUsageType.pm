@@ -6,8 +6,10 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::CapacityType';
 
-has_xml 'Used' => (is => 'ro', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Overhead' => (is => 'ro', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Used' => (is => 'ro', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Overhead' => (is => 'ro', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+
 
 =head1 API
 

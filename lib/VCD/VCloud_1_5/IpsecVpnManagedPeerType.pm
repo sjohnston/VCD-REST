@@ -6,8 +6,10 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::IpsecVpnPeerType';
 
-has_xml 'Id' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Name' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Id' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Name' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+
 
 =head1 API
 

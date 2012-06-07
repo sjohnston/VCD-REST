@@ -6,9 +6,11 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
-has_xml 'id' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'id');
-has_xml 'type' => (is => 'rw', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'type');
-has_xml 'name' => (is => 'rw', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'name');
+has_xml_attr 'id' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'id');
+has_xml_attr 'type' => (is => 'rw', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'type');
+has_xml_attr 'name' => (is => 'rw', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'name');
+
+
 
 =head1 API
 

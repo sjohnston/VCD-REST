@@ -6,11 +6,16 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
-has_xml 'sourceDelete' => (is => 'rw', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'sourceDelete');
-has_xml 'Source' => (is => 'rw', isa => 'VCD::VCloud_1_5::ReferenceType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'VAppScopedLocalId' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'InstantiationParams' => (is => 'rw', isa => 'VCD::VCloud_1_5::InstantiationParamsType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'NetworkAssignment' => (is => 'rw', isa => 'ArrayRef[VCD::VCloud_1_5::NetworkAssignmentType]', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml_attr 'sourceDelete' => (is => 'rw', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'sourceDelete');
+has_xml 'Source' => (is => 'rw', isa => 'VCD::VCloud_1_5::ReferenceType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'VAppScopedLocalId' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'InstantiationParams' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::InstantiationParamsType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'NetworkAssignment' => (is => 'rw', isa => 'ArrayRef[VCD::VCloud_1_5::NetworkAssignmentType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::InstantiationParamsType;
+use VCD::VCloud_1_5::NetworkAssignmentType;
+use VCD::VCloud_1_5::ReferenceType;
+
 
 =head1 API
 

@@ -3,11 +3,13 @@ package VCD::VCloud_1_5::OrgListType;
 use Moose;
 
 use VCD::HasXML;
-use VCD::VCloud_1_5::ReferenceType;
 
 extends 'VCD::VCloud_1_5::ResourceType';
 
-has_xml 'Org' => (is => 'ro', isa => 'ArrayRef[VCD::VCloud_1_5::ReferenceType]', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Org' => (is => 'ro', isa => 'ArrayRef[VCD::VCloud_1_5::ReferenceType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::ReferenceType;
+
 
 =head1 API
 

@@ -6,8 +6,12 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::EntityType';
 
-has_xml 'Entity' => (is => 'rw', isa => 'VCD::VCloud_1_5::ReferenceType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Property' => (is => 'rw', isa => 'ArrayRef[VCD::VCloud_1_5::PropertyType]', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Entity' => (is => 'rw', isa => 'VCD::VCloud_1_5::ReferenceType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Property' => (is => 'rw', isa => 'ArrayRef[VCD::VCloud_1_5::PropertyType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::PropertyType;
+use VCD::VCloud_1_5::ReferenceType;
+
 
 =head1 API
 

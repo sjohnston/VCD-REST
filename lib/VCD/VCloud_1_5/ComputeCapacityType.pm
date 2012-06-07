@@ -6,8 +6,11 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
-has_xml 'Cpu' => (is => 'rw', isa => 'VCD::VCloud_1_5::CapacityWithUsageType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Memory' => (is => 'rw', isa => 'VCD::VCloud_1_5::CapacityWithUsageType', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Cpu' => (is => 'rw', isa => 'VCD::VCloud_1_5::CapacityWithUsageType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Memory' => (is => 'rw', isa => 'VCD::VCloud_1_5::CapacityWithUsageType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::CapacityWithUsageType;
+
 
 =head1 API
 

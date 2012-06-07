@@ -6,7 +6,10 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
-has_xml 'ResourceEntity' => (is => 'ro', isa => 'ArrayRef[VCD::VCloud_1_5::ResourceReferenceType]', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'ResourceEntity' => (is => 'ro', isa => 'ArrayRef[VCD::VCloud_1_5::ResourceReferenceType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::ResourceReferenceType;
+
 
 =head1 API
 

@@ -6,13 +6,20 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
-has_xml 'IpScope' => (is => 'rw', isa => 'VCD::VCloud_1_5::IpScopeType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'ParentNetwork' => (is => 'rw', isa => 'VCD::VCloud_1_5::ReferenceType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'FenceMode' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'RetainNetInfoAcrossDeployments' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Features' => (is => 'rw', isa => 'VCD::VCloud_1_5::NetworkFeaturesType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'SyslogServerSettings' => (is => 'ro', isa => 'VCD::VCloud_1_5::SyslogServerSettingsType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'RouterInfo' => (is => 'ro', isa => 'VCD::VCloud_1_5::RouterInfoType', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IpScope' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::IpScopeType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'ParentNetwork' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'FenceMode' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'RetainNetInfoAcrossDeployments' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Features' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::NetworkFeaturesType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'SyslogServerSettings' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::SyslogServerSettingsType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'RouterInfo' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::RouterInfoType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::NetworkFeaturesType;
+use VCD::VCloud_1_5::IpScopeType;
+use VCD::VCloud_1_5::RouterInfoType;
+use VCD::VCloud_1_5::SyslogServerSettingsType;
+use VCD::VCloud_1_5::ReferenceType;
+
 
 =head1 API
 

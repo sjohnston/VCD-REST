@@ -6,7 +6,10 @@ use VCD::HasXML;
 
 extends 'VCD::External::OVF::Section_Type';
 
-has_xml 'Item' => (is => 'rw', isa => 'ArrayRef[VCD::External::OVF::RASD_Type]', namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml 'Item' => (is => 'rw', isa => 'ArrayRef[VCD::External::OVF::RASD_Type]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+
+use VCD::External::OVF::RASD_Type;
+
 
 =head1 DESCRIPTION
 

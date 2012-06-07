@@ -6,9 +6,12 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
-has_xml 'IsSharedToEveryone' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'EveryoneAccessLevel' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'AccessSettings' => (is => 'rw', isa => 'VCD::VCloud_1_5::AccessSettingsType', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IsSharedToEveryone' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'EveryoneAccessLevel' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'AccessSettings' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::AccessSettingsType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::AccessSettingsType;
+
 
 =head1 API
 

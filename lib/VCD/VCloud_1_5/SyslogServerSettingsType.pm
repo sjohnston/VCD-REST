@@ -6,8 +6,11 @@ use VCD::HasXML;
 
 with 'VCD::HasXMLTrait';
 
-has_xml 'SyslogServerIp1' => (is => 'rw', isa => 'VCD::VCloud_1_5::IpAddressType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'SyslogServerIp2' => (is => 'rw', isa => 'VCD::VCloud_1_5::IpAddressType', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'SyslogServerIp1' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::IpAddressType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'SyslogServerIp2' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::IpAddressType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::IpAddressType;
+
 
 =head1 API
 

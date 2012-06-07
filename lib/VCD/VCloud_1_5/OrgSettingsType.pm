@@ -6,12 +6,20 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::ResourceType';
 
-has_xml 'OrgGeneralSettings' => (is => 'rw', isa => 'VCD::VCloud_1_5::OrgGeneralSettingsType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'VAppLeaseSettings' => (is => 'rw', isa => 'VCD::VCloud_1_5::OrgLeaseSettingsType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'VAppTemplateLeaseSettings' => (is => 'rw', isa => 'VCD::VCloud_1_5::OrgVAppTemplateLeaseSettingsType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'OrgLdapSettings' => (is => 'rw', isa => 'VCD::VCloud_1_5::OrgLdapSettingsType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'OrgEmailSettings' => (is => 'rw', isa => 'VCD::VCloud_1_5::OrgEmailSettingsType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'OrgPasswordPolicySettings' => (is => 'rw', isa => 'VCD::VCloud_1_5::OrgPasswordPolicySettingsType', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'OrgGeneralSettings' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::OrgGeneralSettingsType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'VAppLeaseSettings' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::OrgLeaseSettingsType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'VAppTemplateLeaseSettings' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::OrgVAppTemplateLeaseSettingsType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'OrgLdapSettings' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::OrgLdapSettingsType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'OrgEmailSettings' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::OrgEmailSettingsType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'OrgPasswordPolicySettings' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::OrgPasswordPolicySettingsType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::OrgPasswordPolicySettingsType;
+use VCD::VCloud_1_5::OrgVAppTemplateLeaseSettingsType;
+use VCD::VCloud_1_5::OrgLdapSettingsType;
+use VCD::VCloud_1_5::OrgEmailSettingsType;
+use VCD::VCloud_1_5::OrgLeaseSettingsType;
+use VCD::VCloud_1_5::OrgGeneralSettingsType;
+
 
 =head1 API
 

@@ -6,8 +6,10 @@ use VCD::HasXML;
 
 with 'VCD::HasXMLTrait';
 
-has_xml 'id' => (is => 'rw', namespace => 'http://schemas.dmtf.org/ovf/environment/1', xml_name => 'id');
-has_xml 'Section' => (is => 'rw', isa => 'ArrayRef[Str]', namespace => 'http://schemas.dmtf.org/ovf/environment/1');
+has_xml_attr 'id' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1', xml_name => 'id');
+has_xml 'Section' => (is => 'rw', isa => 'ArrayRef[Str]', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
+
+
 
 =head1 DESCRIPTION
 

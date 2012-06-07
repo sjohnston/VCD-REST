@@ -6,8 +6,11 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::EntityType';
 
-has_xml 'status' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'status');
-has_xml 'Files' => (is => 'ro', isa => 'VCD::VCloud_1_5::FilesListType', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml_attr 'status' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'status');
+has_xml 'Files' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::FilesListType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::FilesListType;
+
 
 =head1 API
 

@@ -6,7 +6,10 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::ResourceType';
 
-has_xml 'MetadataEntry' => (is => 'rw', isa => 'ArrayRef[VCD::VCloud_1_5::MetadataEntryType]', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'MetadataEntry' => (is => 'rw', isa => 'ArrayRef[VCD::VCloud_1_5::MetadataEntryType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::MetadataEntryType;
+
 
 
 

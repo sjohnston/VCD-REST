@@ -6,11 +6,13 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
-has_xml 'message' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'message');
-has_xml 'majorErrorCode' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'majorErrorCode');
-has_xml 'minorErrorCode' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'minorErrorCode');
-has_xml 'vendorSpecificErrorCode' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'vendorSpecificErrorCode');
-has_xml 'stackTrace' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'stackTrace');
+has_xml_attr 'message' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'message');
+has_xml_attr 'majorErrorCode' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'majorErrorCode');
+has_xml_attr 'minorErrorCode' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'minorErrorCode');
+has_xml_attr 'vendorSpecificErrorCode' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'vendorSpecificErrorCode');
+has_xml_attr 'stackTrace' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'stackTrace');
+
+
 
 =head1 API
 

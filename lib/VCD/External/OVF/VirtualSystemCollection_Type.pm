@@ -6,7 +6,9 @@ use VCD::HasXML;
 
 extends 'VCD::External::OVF::Content_Type';
 
-has_xml 'Content' => (is => 'rw', isa => 'ArrayRef[Str]', namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml 'Content' => (is => 'rw', isa => 'ArrayRef[Str]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+
+
 
 =head1 DESCRIPTION
 

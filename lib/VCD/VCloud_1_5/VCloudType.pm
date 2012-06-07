@@ -6,11 +6,18 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::EntityType';
 
-has_xml 'OrganizationReferences' => (is => 'ro', isa => 'VCD::VCloud_1_5::OrganizationReferencesType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'ProviderVdcReferences' => (is => 'ro', isa => 'VCD::VCloud_1_5::ProviderVdcReferencesType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'RightReferences' => (is => 'ro', isa => 'VCD::VCloud_1_5::RightReferencesType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'RoleReferences' => (is => 'ro', isa => 'VCD::VCloud_1_5::RoleReferencesType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Networks' => (is => 'ro', isa => 'VCD::VCloud_1_5::NetworksType', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'OrganizationReferences' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::OrganizationReferencesType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'ProviderVdcReferences' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::ProviderVdcReferencesType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'RightReferences' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::RightReferencesType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'RoleReferences' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::RoleReferencesType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Networks' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::NetworksType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::NetworksType;
+use VCD::VCloud_1_5::RightReferencesType;
+use VCD::VCloud_1_5::RoleReferencesType;
+use VCD::VCloud_1_5::ProviderVdcReferencesType;
+use VCD::VCloud_1_5::OrganizationReferencesType;
+
 
 =head1 API
 

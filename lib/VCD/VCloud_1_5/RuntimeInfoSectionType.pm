@@ -6,7 +6,10 @@ use VCD::HasXML;
 
 extends 'VCD::External::OVF::Section_Type';
 
-has_xml 'VMWareTools' => (is => 'rw', isa => 'VCD::VCloud_1_5::RuntimeInfoSectionType_VMWareTools', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'VMWareTools' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::RuntimeInfoSectionType_VMWareTools]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::RuntimeInfoSectionType_VMWareTools;
+
 
 =head1 API
 

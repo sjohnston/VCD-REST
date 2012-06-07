@@ -113,6 +113,8 @@ sub _build_xml_hash {
     my $self = shift;
 
     my $xml = $self->vcd_rest->get($self->href);
+use Data::Dumper;
+#warn Dumper($xml);
     my ($name) = keys %$xml;
     $self->xml_name($name);
     return $xml->{$name};

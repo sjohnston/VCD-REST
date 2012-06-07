@@ -6,14 +6,22 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::EntityType';
 
-has_xml 'status' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'ComputeCapacity' => (is => 'ro', isa => 'VCD::VCloud_1_5::RootComputeCapacityType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'StorageCapacity' => (is => 'ro', isa => 'VCD::VCloud_1_5::ProviderVdcCapacityType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'AvailableNetworks' => (is => 'ro', isa => 'VCD::VCloud_1_5::AvailableNetworksType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Capabilities' => (is => 'ro', isa => 'VCD::VCloud_1_5::CapabilitiesType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Vdcs' => (is => 'rw', isa => 'VCD::VCloud_1_5::VdcsType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'IsEnabled' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'NetworkPoolReferences' => (is => 'ro', isa => 'VCD::VCloud_1_5::NetworkPoolReferencesType', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml_attr 'status' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'status');
+has_xml 'ComputeCapacity' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::RootComputeCapacityType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'StorageCapacity' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::ProviderVdcCapacityType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'AvailableNetworks' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::AvailableNetworksType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Capabilities' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::CapabilitiesType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Vdcs' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::VdcsType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IsEnabled' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'NetworkPoolReferences' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::NetworkPoolReferencesType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::VdcsType;
+use VCD::VCloud_1_5::CapabilitiesType;
+use VCD::VCloud_1_5::AvailableNetworksType;
+use VCD::VCloud_1_5::RootComputeCapacityType;
+use VCD::VCloud_1_5::ProviderVdcCapacityType;
+use VCD::VCloud_1_5::NetworkPoolReferencesType;
+
 
 =head1 API
 

@@ -6,10 +6,13 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::ResourceType';
 
-has_xml 'name' => (is => 'rw', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'name');
-has_xml 'id' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'id');
-has_xml 'Description' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Tasks' => (is => 'ro', isa => 'VCD::VCloud_1_5::TasksInProgressType', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml_attr 'name' => (is => 'rw', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'name');
+has_xml_attr 'id' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'id');
+has_xml 'Description' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Tasks' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::TasksInProgressType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::TasksInProgressType;
+
 
 =head1 API
 

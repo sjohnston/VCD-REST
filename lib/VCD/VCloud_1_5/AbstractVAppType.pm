@@ -6,9 +6,12 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::ResourceEntityType';
 
-has_xml 'deployed' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'deployed');
-has_xml 'VAppParent' => (is => 'ro', isa => 'VCD::VCloud_1_5::ReferenceType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Section' => (is => 'rw', isa => 'ArrayRef[Str]', namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml_attr 'deployed' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'deployed');
+has_xml 'VAppParent' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Section' => (is => 'rw', isa => 'ArrayRef[Str]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+
+use VCD::VCloud_1_5::ReferenceType;
+
 
 =head1 API
 

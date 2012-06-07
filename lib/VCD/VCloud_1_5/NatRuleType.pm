@@ -6,11 +6,17 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
-has_xml 'Description' => (is => 'rw', isa => 'Str', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'OneToOneBasicRule' => (is => 'rw', isa => 'VCD::VCloud_1_5::NatOneToOneBasicRuleType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'OneToOneVmRule' => (is => 'rw', isa => 'VCD::VCloud_1_5::NatOneToOneVmRuleType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'PortForwardingRule' => (is => 'rw', isa => 'VCD::VCloud_1_5::NatPortForwardingRuleType', namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'VmRule' => (is => 'rw', isa => 'VCD::VCloud_1_5::NatVmRuleType', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Description' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'OneToOneBasicRule' => (is => 'rw', isa => 'VCD::VCloud_1_5::NatOneToOneBasicRuleType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'OneToOneVmRule' => (is => 'rw', isa => 'VCD::VCloud_1_5::NatOneToOneVmRuleType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'PortForwardingRule' => (is => 'rw', isa => 'VCD::VCloud_1_5::NatPortForwardingRuleType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'VmRule' => (is => 'rw', isa => 'VCD::VCloud_1_5::NatVmRuleType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::NatOneToOneBasicRuleType;
+use VCD::VCloud_1_5::NatPortForwardingRuleType;
+use VCD::VCloud_1_5::NatOneToOneVmRuleType;
+use VCD::VCloud_1_5::NatVmRuleType;
+
 
 =head1 API
 

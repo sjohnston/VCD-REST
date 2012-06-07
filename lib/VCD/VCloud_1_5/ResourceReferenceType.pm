@@ -6,7 +6,9 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::ReferenceType';
 
-has_xml 'status' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'status');
+has_xml_attr 'status' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'status');
+
+
 
 =head1 API
 

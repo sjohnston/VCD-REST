@@ -6,7 +6,10 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::EntityType';
 
-has_xml 'Configuration' => (is => 'rw', isa => 'VCD::VCloud_1_5::NetworkConfigurationType', namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Configuration' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::NetworkConfigurationType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+
+use VCD::VCloud_1_5::NetworkConfigurationType;
+
 
 =head1 API
 

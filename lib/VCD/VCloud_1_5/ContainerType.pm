@@ -6,10 +6,12 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::ResourceType';
 
-has_xml 'name' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'name');
-has_xml 'page' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'page');
-has_xml 'pageSize' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'pageSize');
-has_xml 'total' => (is => 'ro', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'total');
+has_xml_attr 'name' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'name');
+has_xml_attr 'page' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'page');
+has_xml_attr 'pageSize' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'pageSize');
+has_xml_attr 'total' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'total');
+
+
 
 =head1 DESCRIPTION
 

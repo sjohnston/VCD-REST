@@ -6,9 +6,11 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
-has_xml 'powerOn' => (is => 'rw', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'powerOn');
-has_xml 'deploymentLeaseSeconds' => (is => 'rw', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'deploymentLeaseSeconds');
-has_xml 'forceCustomization' => (is => 'rw', namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'forceCustomization');
+has_xml_attr 'powerOn' => (is => 'rw', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'powerOn');
+has_xml_attr 'deploymentLeaseSeconds' => (is => 'rw', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'deploymentLeaseSeconds');
+has_xml_attr 'forceCustomization' => (is => 'rw', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'forceCustomization');
+
+
 
 =head1 API
 

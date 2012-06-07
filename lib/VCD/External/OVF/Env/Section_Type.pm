@@ -7,6 +7,8 @@ use VCD::HasXML;
 with 'VCD::HasXMLTrait';
 
 
+
+
 =head1 DESCRIPTION
 
 Abstract type for all sections in environment
