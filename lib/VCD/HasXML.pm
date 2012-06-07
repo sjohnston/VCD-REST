@@ -45,17 +45,18 @@ sub _make_builder {
     return sub {
         my $self = shift;
         my $xml_hash = $self->xml_hash->{$xml_name};
-        if (ref $xml_hash) {
+        if (ref $xml_hash eq 'ARRAY') {
             my @list = map { $subtype->new( xml_name => $xml_name, xml_hash => $_, vcd_rest => $self->vcd_rest ) } @$xml_hash;
             return \@list;
         }
-        return $xml_hash;
+        return [];
     } if ($subtype);
 
     return sub {
         my $self = shift;
         my $xml_hash = $self->xml_hash->{$xml_name};
-        return $type->new( xml_name => $xml_name, xml_hash => $xml_hash, vcd_rest => $self->vcd_rest );
+        return $type->new( xml_name => $xml_name, xml_hash => $xml_hash, vcd_rest => $self->vcd_rest )
+            if ($xml_hash);
     } if ($type && $type ne 'Str');
 
     return sub { my $self = shift;
@@ -113,8 +114,6 @@ sub _build_xml_hash {
     my $self = shift;
 
     my $xml = $self->vcd_rest->get($self->href);
-use Data::Dumper;
-#warn Dumper($xml);
     my ($name) = keys %$xml;
     $self->xml_name($name);
     return $xml->{$name};
@@ -133,8 +132,6 @@ sub to_xml_string {
 sub to_xml {
     my ($self, $doc) = @_;
 
-    $doc ||= XML::LibXML::Document->new('UTF-8', '1.0');
-
     my $hash = $self->xml_hash;
     my ($ns, $name) = $self->xml_name =~ m/^\{(.*?)\}(.*)$/;
 
@@ -150,10 +147,19 @@ sub to_xml {
 
     foreach my $attr ( $meta->get_all_attributes ) {
         my $type = $attr->type_constraint;
-        next if ($type && $type !~ 'Str');
         my $reader = $attr->get_read_method;
         my $value = $self->$reader if ($reader);
-        if ($attr->can('attr_to_xml')) {
+
+        next if (!defined $value && $attr->can('xml_is_optional')
+                                 && $attr->xml_is_optional);
+
+        if (ref $value eq 'ARRAY') {
+            foreach my $c (@$value) {
+                my $child = $c->to_xml($doc);
+                $node->appendChild($child);
+            }
+        }
+        elsif ($attr->can('attr_to_xml')) {
             $attr->attr_to_xml($doc, $node, $value);
         }
     }
@@ -166,6 +172,7 @@ use Moose::Role;
 
 has xml_namespace => (is => 'ro', isa => 'Str');
 has xml_name => (is => 'rw', isa => 'Str');
+has xml_is_optional => (is => 'ro', isa => 'Bool', default => 0);
 
 sub attr_to_xml {
     my ($self, $doc, $parent, $value) = @_;
@@ -178,6 +185,7 @@ use Moose::Role;
 
 has xml_namespace => (is => 'ro', isa => 'Str');
 has xml_name => (is => 'rw', isa => 'Str');
+has xml_is_optional => (is => 'ro', isa => 'Bool', default => 0);
 
 sub attr_to_xml {
     my ($self, $doc, $parent, $value) = @_;
