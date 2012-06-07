@@ -153,8 +153,8 @@ sub to_xml {
         next if ($type && $type !~ 'Str');
         my $reader = $attr->get_read_method;
         my $value = $self->$reader if ($reader);
-        if ($attr->can('to_xml')) {
-            $attr->to_xml($doc, $node, $value);
+        if ($attr->can('attr_to_xml')) {
+            $attr->attr_to_xml($doc, $node, $value);
         }
     }
 
@@ -167,7 +167,7 @@ use Moose::Role;
 has xml_namespace => (is => 'ro', isa => 'Str');
 has xml_name => (is => 'rw', isa => 'Str');
 
-sub to_xml {
+sub attr_to_xml {
     my ($self, $doc, $parent, $value) = @_;
 
     $parent->setAttribute($self->name, $value);
@@ -179,7 +179,7 @@ use Moose::Role;
 has xml_namespace => (is => 'ro', isa => 'Str');
 has xml_name => (is => 'rw', isa => 'Str');
 
-sub to_xml {
+sub attr_to_xml {
     my ($self, $doc, $parent, $value) = @_;
 
     my $child = $doc->createElement($self->name);
