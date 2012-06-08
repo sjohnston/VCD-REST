@@ -107,12 +107,13 @@ has xml_name => (
 has vcd_rest => (
     is => 'rw',
     isa => 'VCD::REST',
-    required => 1,
+    predicate => 'has_vcd_rest',
 );
 
 sub _build_xml_hash {
     my $self = shift;
 
+    return { } unless $self->has_vcd_rest;
     my $xml = $self->vcd_rest->get($self->href);
     my ($name) = keys %$xml;
     $self->xml_name($name);
@@ -132,7 +133,6 @@ sub to_xml_string {
 sub to_xml {
     my ($self, $doc) = @_;
 
-    my $hash = $self->xml_hash;
     my ($ns, $name) = $self->xml_name =~ m/^\{(.*?)\}(.*)$/;
 
     my $node;
@@ -181,7 +181,7 @@ has xml_is_optional => (is => 'ro', isa => 'Bool', default => 0);
 sub attr_to_xml {
     my ($self, $doc, $parent, $value) = @_;
 
-    $parent->setAttribute($self->name, $value);
+    $parent->setAttribute($self->name, $value // '');
 }
 
 package VCD::XMLElement;
