@@ -6,18 +6,18 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
-has_xml 'Name' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Description' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'IpsecVpnPeer' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'PeerIpAddress' => (is => 'rw', isa => 'VCD::VCloud_1_5::IpAddressType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'PeerNetworkAddress' => (is => 'rw', isa => 'VCD::VCloud_1_5::IpAddressType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'PeerNetworkMask' => (is => 'rw', isa => 'VCD::VCloud_1_5::IpAddressType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'SharedSecret' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'EncryptionProtocol' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Mtu' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'IsEnabled' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'IsOperational' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'ErrorDetails' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Name' => (is => 'rw', isa => 'Str', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Description' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IpsecVpnPeer' => (is => 'rw', isa => 'Str', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'PeerIpAddress' => (is => 'rw', isa => 'VCD::VCloud_1_5::IpAddressType', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'PeerNetworkAddress' => (is => 'rw', isa => 'VCD::VCloud_1_5::IpAddressType', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'PeerNetworkMask' => (is => 'rw', isa => 'VCD::VCloud_1_5::IpAddressType', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'SharedSecret' => (is => 'rw', isa => 'Str', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'EncryptionProtocol' => (is => 'rw', isa => 'Str', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Mtu' => (is => 'rw', isa => 'Str', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IsEnabled' => (is => 'rw', isa => 'Str', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IsOperational' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'ErrorDetails' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 use VCD::VCloud_1_5::IpAddressType;
 

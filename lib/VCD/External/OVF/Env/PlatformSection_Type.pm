@@ -6,11 +6,11 @@ use VCD::HasXML;
 
 extends 'VCD::External::OVF::Env::Section_Type';
 
-has_xml 'Kind' => (is => 'rw', isa => 'Maybe[VCD::External::CIM::cimString]', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
-has_xml 'Version' => (is => 'rw', isa => 'Maybe[VCD::External::CIM::cimString]', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
-has_xml 'Vendor' => (is => 'rw', isa => 'Maybe[VCD::External::CIM::cimString]', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
-has_xml 'Locale' => (is => 'rw', isa => 'Maybe[VCD::External::CIM::cimString]', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
-has_xml 'Timezone' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
+has_xml 'Kind' => (is => 'rw', isa => 'Maybe[VCD::External::CIM::cimString]', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
+has_xml 'Version' => (is => 'rw', isa => 'Maybe[VCD::External::CIM::cimString]', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
+has_xml 'Vendor' => (is => 'rw', isa => 'Maybe[VCD::External::CIM::cimString]', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
+has_xml 'Locale' => (is => 'rw', isa => 'Maybe[VCD::External::CIM::cimString]', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
+has_xml 'Timezone' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
 
 use VCD::External::CIM::cimString;
 

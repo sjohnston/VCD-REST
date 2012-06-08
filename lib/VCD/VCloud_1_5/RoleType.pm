@@ -6,7 +6,7 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::EntityType';
 
-has_xml 'RightReferences' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::RightReferencesType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'RightReferences' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::RightReferencesType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 use VCD::VCloud_1_5::RightReferencesType;
 

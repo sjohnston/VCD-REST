@@ -6,9 +6,9 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::EntityType';
 
-has_xml 'Owner' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::OwnerType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'CatalogItems' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::CatalogItemsType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'IsPublished' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Owner' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::OwnerType]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'CatalogItems' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::CatalogItemsType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IsPublished' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 use VCD::VCloud_1_5::CatalogItemsType;
 use VCD::VCloud_1_5::OwnerType;

@@ -6,7 +6,7 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
-has_xml 'Vm' => (is => 'ro', isa => 'ArrayRef[VCD::VCloud_1_5::VAppTemplateType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Vm' => (is => 'ro', isa => 'ArrayRef[VCD::VCloud_1_5::VAppTemplateType]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 use VCD::VCloud_1_5::VAppTemplateType;
 

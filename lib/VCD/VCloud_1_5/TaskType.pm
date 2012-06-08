@@ -12,12 +12,12 @@ has_xml_attr 'operationName' => (is => 'ro', xml_is_optional => '1', xml_name =>
 has_xml_attr 'startTime' => (is => 'ro', xml_is_optional => '1', xml_name => 'startTime', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml_attr 'endTime' => (is => 'ro', xml_is_optional => '1', xml_name => 'endTime', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml_attr 'expiryTime' => (is => 'ro', xml_is_optional => '1', xml_name => 'expiryTime', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Owner' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Error' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::ErrorType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'User' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Organization' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Progress' => (is => 'ro', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Params' => (is => 'ro', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Owner' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Error' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::ErrorType]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'User' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Organization' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Progress' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Params' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 use VCD::VCloud_1_5::ErrorType;
 use VCD::VCloud_1_5::ReferenceType;

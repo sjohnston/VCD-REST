@@ -8,8 +8,8 @@ extends 'VCD::VCloud_1_5::ParamsType';
 
 has_xml_attr 'deploy' => (is => 'rw', xml_is_optional => '1', xml_name => 'deploy', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml_attr 'powerOn' => (is => 'rw', xml_is_optional => '1', xml_name => 'powerOn', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'VAppParent' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'InstantiationParams' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::InstantiationParamsType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'VAppParent' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'InstantiationParams' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::InstantiationParamsType]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 use VCD::VCloud_1_5::InstantiationParamsType;
 use VCD::VCloud_1_5::ReferenceType;

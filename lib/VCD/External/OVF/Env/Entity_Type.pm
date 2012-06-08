@@ -7,7 +7,7 @@ use VCD::HasXML;
 with 'VCD::HasXMLTrait';
 
 has_xml_attr 'id' => (is => 'rw', xml_name => 'id', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
-has_xml 'Section' => (is => 'rw', isa => 'ArrayRef[Str]', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
+has_xml 'Section' => (is => 'rw', isa => 'ArrayRef[Str]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
 
 
 

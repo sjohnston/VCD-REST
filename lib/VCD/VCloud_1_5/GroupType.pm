@@ -6,9 +6,9 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::EntityType';
 
-has_xml 'NameInSource' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'UsersList' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::UsersListType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Role' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'NameInSource' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'UsersList' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::UsersListType]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Role' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 use VCD::VCloud_1_5::ReferenceType;
 use VCD::VCloud_1_5::UsersListType;

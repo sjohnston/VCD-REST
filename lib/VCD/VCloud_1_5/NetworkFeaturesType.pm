@@ -6,7 +6,7 @@ use VCD::HasXML;
 
 with 'VCD::HasXMLTrait';
 
-has_xml 'NetworkService' => (is => 'rw', isa => 'ArrayRef[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'NetworkService' => (is => 'rw', isa => 'ArrayRef[Str]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
 

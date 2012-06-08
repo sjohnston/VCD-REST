@@ -6,8 +6,8 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::NetworkType';
 
-has_xml 'NetworkPool' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'AllowedExternalIpAddresses' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::IpAddressesType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'NetworkPool' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'AllowedExternalIpAddresses' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::IpAddressesType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 use VCD::VCloud_1_5::IpAddressesType;
 use VCD::VCloud_1_5::ReferenceType;

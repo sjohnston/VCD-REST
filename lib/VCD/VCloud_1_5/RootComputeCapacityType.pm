@@ -6,10 +6,10 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
-has_xml 'Cpu' => (is => 'ro', isa => 'VCD::VCloud_1_5::ProviderVdcCapacityType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Memory' => (is => 'ro', isa => 'VCD::VCloud_1_5::ProviderVdcCapacityType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'IsElastic' => (is => 'ro', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'IsHA' => (is => 'ro', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Cpu' => (is => 'ro', isa => 'VCD::VCloud_1_5::ProviderVdcCapacityType', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Memory' => (is => 'ro', isa => 'VCD::VCloud_1_5::ProviderVdcCapacityType', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IsElastic' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IsHA' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 use VCD::VCloud_1_5::ProviderVdcCapacityType;
 

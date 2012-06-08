@@ -6,13 +6,13 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
-has_xml 'IpScope' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::IpScopeType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'ParentNetwork' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'FenceMode' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'RetainNetInfoAcrossDeployments' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Features' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::NetworkFeaturesType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'SyslogServerSettings' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::SyslogServerSettingsType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'RouterInfo' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::RouterInfoType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IpScope' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::IpScopeType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'ParentNetwork' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'FenceMode' => (is => 'rw', isa => 'Str', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'RetainNetInfoAcrossDeployments' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Features' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::NetworkFeaturesType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'SyslogServerSettings' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::SyslogServerSettingsType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'RouterInfo' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::RouterInfoType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 use VCD::VCloud_1_5::NetworkFeaturesType;
 use VCD::VCloud_1_5::IpScopeType;

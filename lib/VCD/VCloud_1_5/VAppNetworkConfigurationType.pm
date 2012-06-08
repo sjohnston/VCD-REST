@@ -7,9 +7,9 @@ use VCD::HasXML;
 extends 'VCD::VCloud_1_5::ResourceType';
 
 has_xml_attr 'networkName' => (is => 'rw', xml_name => 'networkName', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Description' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Description' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Configuration' => (is => 'rw', isa => 'VCD::VCloud_1_5::NetworkConfigurationType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'IsDeployed' => (is => 'ro', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IsDeployed' => (is => 'ro', isa => 'Maybe[Str]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 use VCD::VCloud_1_5::NetworkConfigurationType;
 

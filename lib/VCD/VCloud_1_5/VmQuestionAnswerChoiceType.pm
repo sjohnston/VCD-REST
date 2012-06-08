@@ -7,7 +7,7 @@ use VCD::HasXML;
 with 'VCD::HasXMLTrait';
 
 has_xml 'Id' => (is => 'ro', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Text' => (is => 'ro', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Text' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
 

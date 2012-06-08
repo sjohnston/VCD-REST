@@ -6,7 +6,7 @@ use VCD::HasXML;
 
 extends 'VCD::External::OVF::Section_Type';
 
-has_xml 'Disk' => (is => 'rw', isa => 'ArrayRef[VCD::External::OVF::VirtualDiskDesc_Type]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml 'Disk' => (is => 'rw', isa => 'ArrayRef[VCD::External::OVF::VirtualDiskDesc_Type]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 
 use VCD::External::OVF::VirtualDiskDesc_Type;
 

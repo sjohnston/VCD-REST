@@ -8,14 +8,14 @@ extends 'VCD::External::OVF::Section_Type';
 
 has_xml_attr 'class' => (is => 'rw', xml_is_optional => '1', xml_name => 'class', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml_attr 'instance' => (is => 'rw', xml_is_optional => '1', xml_name => 'instance', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
-has_xml 'Product' => (is => 'rw', isa => 'Maybe[VCD::External::OVF::Msg_Type]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
-has_xml 'Vendor' => (is => 'rw', isa => 'Maybe[VCD::External::OVF::Msg_Type]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
-has_xml 'Version' => (is => 'rw', isa => 'Maybe[VCD::External::CIM::cimString]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
-has_xml 'FullVersion' => (is => 'rw', isa => 'Maybe[VCD::External::CIM::cimString]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
-has_xml 'ProductUrl' => (is => 'rw', isa => 'Maybe[VCD::External::CIM::cimString]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
-has_xml 'VendorUrl' => (is => 'rw', isa => 'Maybe[VCD::External::CIM::cimString]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
-has_xml 'AppUrl' => (is => 'rw', isa => 'Maybe[VCD::External::CIM::cimString]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
-has_xml 'Icon' => (is => 'rw', isa => 'ArrayRef[VCD::External::OVF::ProductSection_Type_Icon]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml 'Product' => (is => 'rw', isa => 'Maybe[VCD::External::OVF::Msg_Type]', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml 'Vendor' => (is => 'rw', isa => 'Maybe[VCD::External::OVF::Msg_Type]', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml 'Version' => (is => 'rw', isa => 'Maybe[VCD::External::CIM::cimString]', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml 'FullVersion' => (is => 'rw', isa => 'Maybe[VCD::External::CIM::cimString]', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml 'ProductUrl' => (is => 'rw', isa => 'Maybe[VCD::External::CIM::cimString]', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml 'VendorUrl' => (is => 'rw', isa => 'Maybe[VCD::External::CIM::cimString]', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml 'AppUrl' => (is => 'rw', isa => 'Maybe[VCD::External::CIM::cimString]', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml 'Icon' => (is => 'rw', isa => 'ArrayRef[VCD::External::OVF::ProductSection_Type_Icon]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml 'Category' => (is => 'rw', isa => 'VCD::External::OVF::Msg_Type', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml 'Property' => (is => 'rw', isa => 'VCD::External::OVF::ProductSection_Type_Property', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 

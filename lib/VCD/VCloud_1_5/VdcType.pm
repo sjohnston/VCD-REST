@@ -7,16 +7,16 @@ use VCD::HasXML;
 extends 'VCD::VCloud_1_5::EntityType';
 
 has_xml_attr 'status' => (is => 'ro', xml_is_optional => '1', xml_name => 'status', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'AllocationModel' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'StorageCapacity' => (is => 'rw', isa => 'VCD::VCloud_1_5::CapacityWithUsageType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'ComputeCapacity' => (is => 'rw', isa => 'VCD::VCloud_1_5::ComputeCapacityType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'ResourceEntities' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::ResourceEntitiesType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'AvailableNetworks' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::AvailableNetworksType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Capabilities' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::CapabilitiesType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'NicQuota' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'NetworkQuota' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'VmQuota' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'IsEnabled' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'AllocationModel' => (is => 'rw', isa => 'Str', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'StorageCapacity' => (is => 'rw', isa => 'VCD::VCloud_1_5::CapacityWithUsageType', xml_maximum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'ComputeCapacity' => (is => 'rw', isa => 'VCD::VCloud_1_5::ComputeCapacityType', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'ResourceEntities' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::ResourceEntitiesType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'AvailableNetworks' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::AvailableNetworksType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Capabilities' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::CapabilitiesType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'NicQuota' => (is => 'rw', isa => 'Str', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'NetworkQuota' => (is => 'rw', isa => 'Str', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'VmQuota' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IsEnabled' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 use VCD::VCloud_1_5::CapacityWithUsageType;
 use VCD::VCloud_1_5::ResourceEntitiesType;

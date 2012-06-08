@@ -7,8 +7,8 @@ use VCD::HasXML;
 with 'VCD::HasXMLTrait';
 
 has_xml_attr 'id' => (is => 'rw', xml_is_optional => '1', xml_name => 'id', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
-has_xml 'Section' => (is => 'rw', isa => 'ArrayRef[Str]', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
-has_xml 'Entity' => (is => 'rw', isa => 'ArrayRef[VCD::External::OVF::Env::Entity_Type]', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
+has_xml 'Section' => (is => 'rw', isa => 'ArrayRef[Str]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
+has_xml 'Entity' => (is => 'rw', isa => 'ArrayRef[VCD::External::OVF::Env::Entity_Type]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
 
 use VCD::External::OVF::Env::Entity_Type;
 

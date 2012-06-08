@@ -7,8 +7,8 @@ use VCD::HasXML;
 extends 'VCD::VCloud_1_5::VAppCreationParamsType';
 
 has_xml_attr 'linkedClone' => (is => 'rw', xml_is_optional => '1', xml_name => 'linkedClone', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'SourcedItem' => (is => 'rw', isa => 'ArrayRef[VCD::VCloud_1_5::SourcedCompositionItemParamType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'AllEULAsAccepted' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'SourcedItem' => (is => 'rw', isa => 'ArrayRef[VCD::VCloud_1_5::SourcedCompositionItemParamType]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'AllEULAsAccepted' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 use VCD::VCloud_1_5::SourcedCompositionItemParamType;
 

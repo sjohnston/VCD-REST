@@ -7,8 +7,8 @@ use VCD::HasXML;
 extends 'VCD::VCloud_1_5::ResourceEntityType';
 
 has_xml_attr 'deployed' => (is => 'ro', xml_is_optional => '1', xml_name => 'deployed', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'VAppParent' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Section' => (is => 'rw', isa => 'ArrayRef[Str]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml 'VAppParent' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Section' => (is => 'rw', isa => 'ArrayRef[Str]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 
 use VCD::VCloud_1_5::ReferenceType;
 
