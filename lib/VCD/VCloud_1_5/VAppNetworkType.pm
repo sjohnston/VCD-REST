@@ -6,7 +6,7 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::NetworkType';
 
-has_xml_attr 'deployed' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'deployed');
+has_xml_attr 'deployed' => (is => 'ro', xml_is_optional => '1', xml_name => 'deployed', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
 

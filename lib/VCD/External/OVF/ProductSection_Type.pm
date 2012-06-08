@@ -6,8 +6,8 @@ use VCD::HasXML;
 
 extends 'VCD::External::OVF::Section_Type';
 
-has_xml_attr 'class' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'class');
-has_xml_attr 'instance' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'instance');
+has_xml_attr 'class' => (is => 'rw', xml_is_optional => '1', xml_name => 'class', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml_attr 'instance' => (is => 'rw', xml_is_optional => '1', xml_name => 'instance', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml 'Product' => (is => 'rw', isa => 'Maybe[VCD::External::OVF::Msg_Type]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml 'Vendor' => (is => 'rw', isa => 'Maybe[VCD::External::OVF::Msg_Type]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml 'Version' => (is => 'rw', isa => 'Maybe[VCD::External::CIM::cimString]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');

@@ -6,7 +6,7 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::EntityType';
 
-has_xml_attr 'status' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'status');
+has_xml_attr 'status' => (is => 'ro', xml_is_optional => '1', xml_name => 'status', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'AllocationModel' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'StorageCapacity' => (is => 'rw', isa => 'VCD::VCloud_1_5::CapacityWithUsageType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'ComputeCapacity' => (is => 'rw', isa => 'VCD::VCloud_1_5::ComputeCapacityType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');

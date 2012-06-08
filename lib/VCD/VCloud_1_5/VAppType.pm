@@ -6,7 +6,7 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::AbstractVAppType';
 
-has_xml_attr 'ovfDescriptorUploaded' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'ovfDescriptorUploaded');
+has_xml_attr 'ovfDescriptorUploaded' => (is => 'ro', xml_is_optional => '1', xml_name => 'ovfDescriptorUploaded', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Owner' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::OwnerType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'InMaintenanceMode' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Children' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::VAppChildrenType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');

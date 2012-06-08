@@ -6,9 +6,9 @@ use VCD::HasXML;
 
 extends 'VCD::External::RASD::CIM_ResourceAllocationSettingData_Type';
 
-has_xml_attr 'required' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'required');
-has_xml_attr 'configuration' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'configuration');
-has_xml_attr 'bound' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'bound');
+has_xml_attr 'required' => (is => 'rw', xml_is_optional => '1', xml_name => 'required', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml_attr 'configuration' => (is => 'rw', xml_is_optional => '1', xml_name => 'configuration', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml_attr 'bound' => (is => 'rw', xml_is_optional => '1', xml_name => 'bound', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 
 
 

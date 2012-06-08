@@ -6,7 +6,7 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::VAppCreationParamsType';
 
-has_xml_attr 'linkedClone' => (is => 'rw', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'linkedClone');
+has_xml_attr 'linkedClone' => (is => 'rw', xml_is_optional => '1', xml_name => 'linkedClone', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Source' => (is => 'rw', isa => 'VCD::VCloud_1_5::ReferenceType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'IsSourceDelete' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 

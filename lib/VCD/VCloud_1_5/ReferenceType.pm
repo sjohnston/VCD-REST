@@ -6,10 +6,10 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
-has_xml_attr 'href' => (is => 'rw', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'href');
-has_xml_attr 'id' => (is => 'rw', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'id');
-has_xml_attr 'type' => (is => 'rw', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'type');
-has_xml_attr 'name' => (is => 'rw', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'name');
+has_xml_attr 'href' => (is => 'rw', xml_name => 'href', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml_attr 'id' => (is => 'rw', xml_is_optional => '1', xml_name => 'id', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml_attr 'type' => (is => 'rw', xml_is_optional => '1', xml_name => 'type', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml_attr 'name' => (is => 'rw', xml_is_optional => '1', xml_name => 'name', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
 

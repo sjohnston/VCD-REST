@@ -6,7 +6,7 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::AbstractVAppType';
 
-has_xml_attr 'needsCustomization' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'needsCustomization');
+has_xml_attr 'needsCustomization' => (is => 'ro', xml_is_optional => '1', xml_name => 'needsCustomization', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'VAppScopedLocalId' => (is => 'ro', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Environment' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
 

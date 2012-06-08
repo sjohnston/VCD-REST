@@ -6,12 +6,12 @@ use VCD::HasXML;
 
 with 'VCD::HasXMLTrait';
 
-has_xml_attr 'key' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'key');
-has_xml_attr 'type' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'type');
-has_xml_attr 'qualifiers' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'qualifiers');
-has_xml_attr 'userConfigurable' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'userConfigurable');
-has_xml_attr 'value' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'value');
-has_xml_attr 'password' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'password');
+has_xml_attr 'key' => (is => 'rw', xml_name => 'key', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml_attr 'type' => (is => 'rw', xml_name => 'type', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml_attr 'qualifiers' => (is => 'rw', xml_is_optional => '1', xml_name => 'qualifiers', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml_attr 'userConfigurable' => (is => 'rw', xml_is_optional => '1', xml_name => 'userConfigurable', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml_attr 'value' => (is => 'rw', xml_is_optional => '1', xml_name => 'value', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml_attr 'password' => (is => 'rw', xml_is_optional => '1', xml_name => 'password', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml 'Label' => (is => 'rw', isa => 'Maybe[VCD::External::OVF::Msg_Type]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml 'Description' => (is => 'rw', isa => 'Maybe[VCD::External::OVF::Msg_Type]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml 'Value' => (is => 'rw', isa => 'ArrayRef[VCD::External::OVF::PropertyConfigurationValue_Type]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');

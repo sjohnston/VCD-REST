@@ -6,9 +6,9 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::EntityType';
 
-has_xml_attr 'size' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'size');
-has_xml_attr 'bytesTransferred' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'bytesTransferred');
-has_xml_attr 'checksum' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'checksum');
+has_xml_attr 'size' => (is => 'ro', xml_name => 'size', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml_attr 'bytesTransferred' => (is => 'ro', xml_name => 'bytesTransferred', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml_attr 'checksum' => (is => 'ro', xml_name => 'checksum', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
 

@@ -6,8 +6,8 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::ParamsType';
 
-has_xml_attr 'transferFormat' => (is => 'rw', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'transferFormat');
-has_xml_attr 'manifestRequired' => (is => 'rw', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'manifestRequired');
+has_xml_attr 'transferFormat' => (is => 'rw', xml_is_optional => '1', xml_name => 'transferFormat', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml_attr 'manifestRequired' => (is => 'rw', xml_is_optional => '1', xml_name => 'manifestRequired', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
 

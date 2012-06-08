@@ -6,8 +6,8 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
-has_xml_attr 'innerNetwork' => (is => 'rw', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'innerNetwork');
-has_xml_attr 'containerNetwork' => (is => 'rw', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'containerNetwork');
+has_xml_attr 'innerNetwork' => (is => 'rw', xml_name => 'innerNetwork', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml_attr 'containerNetwork' => (is => 'rw', xml_name => 'containerNetwork', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
 

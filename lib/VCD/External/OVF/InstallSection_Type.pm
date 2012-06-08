@@ -6,7 +6,7 @@ use VCD::HasXML;
 
 extends 'VCD::External::OVF::Section_Type';
 
-has_xml_attr 'initialBootStopDelay' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'initialBootStopDelay');
+has_xml_attr 'initialBootStopDelay' => (is => 'rw', xml_is_optional => '1', xml_name => 'initialBootStopDelay', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 
 
 

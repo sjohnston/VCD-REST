@@ -6,7 +6,7 @@ use VCD::HasXML;
 
 with 'VCD::HasXMLTrait';
 
-has_xml_attr 'version' => (is => 'ro', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'version');
+has_xml_attr 'version' => (is => 'ro', xml_name => 'version', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
 

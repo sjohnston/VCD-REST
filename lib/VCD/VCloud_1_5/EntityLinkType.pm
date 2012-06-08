@@ -6,7 +6,7 @@ use VCD::HasXML;
 
 extends 'VCD::VCloud_1_5::EntityReferenceType';
 
-has_xml_attr 'rel' => (is => 'rw', xml_namespace => 'http://www.vmware.com/vcloud/v1.5', xml_name => 'rel');
+has_xml_attr 'rel' => (is => 'rw', xml_name => 'rel', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
 

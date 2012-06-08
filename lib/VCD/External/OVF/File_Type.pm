@@ -6,11 +6,11 @@ use VCD::HasXML;
 
 with 'VCD::HasXMLTrait';
 
-has_xml_attr 'id' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'id');
-has_xml_attr 'href' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'href');
-has_xml_attr 'size' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'size');
-has_xml_attr 'compression' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'compression');
-has_xml_attr 'chunkSize' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1', xml_name => 'chunkSize');
+has_xml_attr 'id' => (is => 'rw', xml_name => 'id', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml_attr 'href' => (is => 'rw', xml_name => 'href', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml_attr 'size' => (is => 'rw', xml_is_optional => '1', xml_name => 'size', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml_attr 'compression' => (is => 'rw', xml_is_optional => '1', xml_name => 'compression', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml_attr 'chunkSize' => (is => 'rw', xml_is_optional => '1', xml_name => 'chunkSize', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 
 
 
