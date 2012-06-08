@@ -159,6 +159,10 @@ sub to_xml {
                 $node->appendChild($child);
             }
         }
+        elsif (eval { $value->can('to_xml') }) {
+            my $child = $value->to_xml($doc);
+            $node->appendChild($child);
+        }
         elsif ($attr->can('attr_to_xml')) {
             $attr->attr_to_xml($doc, $node, $value);
         }
