@@ -92,6 +92,8 @@ sub has_xml_link {
 package VCD::HasXMLTrait;
 use Moose::Role;
 
+use Scalar::Util 'blessed';
+
 has xml_hash => (
     is => 'rw',
     isa => 'HashRef',
@@ -109,6 +111,31 @@ has vcd_rest => (
     isa => 'VCD::REST',
     predicate => 'has_vcd_rest',
 );
+
+around BUILDARGS => sub {
+    my $orig = shift;
+    my $class = shift;
+
+    my $args = $class->$orig(@_);
+
+    foreach my $attr_name (keys %$args) {
+        next if ($attr_name eq 'xml_hash');
+        my $arg = $args->{$attr_name};
+        next unless (ref $arg eq 'HASH' && ! blessed $arg);
+
+        my $attr = $class->meta->get_attribute($attr_name);
+        next unless ($attr);
+        my $type = $attr->type_constraint->name if ($attr->has_type_constraint);
+
+        if ($type && $type =~ /^Maybe/) {
+            $type = $attr->type_constraint->type_parameter->name;
+        }
+
+        $args->{$attr_name} = $type->new(%$arg, xml_name => $attr_name);
+    }
+
+    return $args;
+};
 
 sub _build_xml_hash {
     my $self = shift;
