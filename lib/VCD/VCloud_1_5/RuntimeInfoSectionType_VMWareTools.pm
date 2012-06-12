@@ -2,9 +2,9 @@ package VCD::VCloud_1_5::RuntimeInfoSectionType_VMWareTools;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
-with 'VCD::HasXMLTrait';
+extends 'VCD::Schema::Type';
 
 has_xml_attr 'version' => (is => 'ro', xml_name => 'version', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 

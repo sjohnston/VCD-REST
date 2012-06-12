@@ -2,9 +2,9 @@ package VCD::External::VSSD::CIM_VirtualSystemSettingData_Type;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
-with 'VCD::HasXMLTrait';
+extends 'VCD::Schema::Type';
 
 has_xml 'AutomaticRecoveryAction' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData');
 has_xml 'AutomaticShutdownAction' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData');

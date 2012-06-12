@@ -2,9 +2,9 @@ package VCD::VCloud_1_5::VCloudExtensibleType;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
-with 'VCD::HasXMLTrait';
+extends 'VCD::Schema::Type';
 
 has_xml 'VCloudExtension' => (is => 'rw', isa => 'ArrayRef[VCD::VCloud_1_5::VCloudExtensionType]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 

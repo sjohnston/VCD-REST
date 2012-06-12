@@ -2,9 +2,9 @@ package VCD::External::OVF::File_Type;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
-with 'VCD::HasXMLTrait';
+extends 'VCD::Schema::Type';
 
 has_xml_attr 'id' => (is => 'rw', xml_name => 'id', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml_attr 'href' => (is => 'rw', xml_name => 'href', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');

@@ -2,9 +2,9 @@ package VCD::VCloud_1_5::SyslogServerSettingsType;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
-with 'VCD::HasXMLTrait';
+extends 'VCD::Schema::Type';
 
 has_xml 'SyslogServerIp1' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::IpAddressType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'SyslogServerIp2' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::IpAddressType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');

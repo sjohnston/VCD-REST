@@ -2,7 +2,7 @@ package VCD::External::VSSD::Caption;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
 extends 'VCD::External::CIM::cimString';
 

@@ -2,7 +2,7 @@ package VCD::External::OVF::VSSD_Type;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
 extends 'VCD::External::VSSD::CIM_VirtualSystemSettingData_Type';
 

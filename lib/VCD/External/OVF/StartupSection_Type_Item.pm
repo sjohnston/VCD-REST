@@ -2,9 +2,9 @@ package VCD::External::OVF::StartupSection_Type_Item;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
-with 'VCD::HasXMLTrait';
+extends 'VCD::Schema::Type';
 
 has_xml_attr 'id' => (is => 'rw', xml_name => 'id', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml_attr 'order' => (is => 'rw', xml_name => 'order', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');

@@ -2,7 +2,7 @@ package VCD::External::OVF::RASD_Type;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
 extends 'VCD::External::RASD::CIM_ResourceAllocationSettingData_Type';
 

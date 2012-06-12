@@ -2,9 +2,9 @@ package VCD::External::OVF::PropertyConfigurationValue_Type;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
-with 'VCD::HasXMLTrait';
+extends 'VCD::Schema::Type';
 
 has_xml_attr 'value' => (is => 'rw', xml_name => 'value', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml_attr 'configuration' => (is => 'rw', xml_is_optional => '1', xml_name => 'configuration', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');

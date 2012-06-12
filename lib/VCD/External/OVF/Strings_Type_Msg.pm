@@ -2,9 +2,9 @@ package VCD::External::OVF::Strings_Type_Msg;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
-with 'VCD::HasXMLTrait';
+extends 'VCD::Schema::Type';
 
 has_xml_attr 'msgid' => (is => 'rw', xml_name => 'msgid', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 

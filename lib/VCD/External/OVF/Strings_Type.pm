@@ -2,9 +2,9 @@ package VCD::External::OVF::Strings_Type;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
-with 'VCD::HasXMLTrait';
+extends 'VCD::Schema::Type';
 
 has_xml_attr 'lang' => (is => 'rw', xml_name => '{http://www.w3.org/XML/1998/namespace}lang', xml_namespace => 'http://www.w3.org/XML/1998/namespace');
 has_xml_attr 'fileRef' => (is => 'rw', xml_is_optional => '1', xml_name => 'fileRef', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');

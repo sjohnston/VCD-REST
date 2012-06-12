@@ -2,9 +2,9 @@ package VCD::External::OVF::ProductSection_Type_Property;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
-with 'VCD::HasXMLTrait';
+extends 'VCD::Schema::Type';
 
 has_xml_attr 'key' => (is => 'rw', xml_name => 'key', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml_attr 'type' => (is => 'rw', xml_name => 'type', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');

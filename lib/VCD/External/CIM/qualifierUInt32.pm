@@ -2,7 +2,7 @@ package VCD::External::CIM::qualifierUInt32;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
 extends 'VCD::External::CIM::cimUnsignedInt';
 

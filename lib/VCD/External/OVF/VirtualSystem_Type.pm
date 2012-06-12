@@ -2,7 +2,7 @@ package VCD::External::OVF::VirtualSystem_Type;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
 extends 'VCD::External::OVF::Content_Type';
 

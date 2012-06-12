@@ -2,9 +2,9 @@ package VCD::VCloud_1_5::PropertyType;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
-with 'VCD::HasXMLTrait';
+extends 'VCD::Schema::Type';
 
 has_xml_attr 'key' => (is => 'rw', xml_name => 'key', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 

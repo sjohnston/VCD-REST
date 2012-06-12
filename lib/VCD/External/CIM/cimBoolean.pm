@@ -2,9 +2,9 @@ package VCD::External::CIM::cimBoolean;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
-with 'VCD::HasXMLTrait';
+extends 'VCD::Schema::Type';
 
 
 

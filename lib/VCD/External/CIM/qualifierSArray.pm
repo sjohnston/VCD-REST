@@ -2,7 +2,7 @@ package VCD::External::CIM::qualifierSArray;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
 extends 'VCD::External::CIM::qualifierString';
 

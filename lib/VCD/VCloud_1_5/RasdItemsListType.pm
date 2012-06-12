@@ -2,7 +2,7 @@ package VCD::VCloud_1_5::RasdItemsListType;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
 extends 'VCD::VCloud_1_5::ResourceType';
 

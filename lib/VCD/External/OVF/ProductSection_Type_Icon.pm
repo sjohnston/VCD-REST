@@ -2,9 +2,9 @@ package VCD::External::OVF::ProductSection_Type_Icon;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
-with 'VCD::HasXMLTrait';
+extends 'VCD::Schema::Type';
 
 has_xml_attr 'height' => (is => 'rw', xml_is_optional => '1', xml_name => 'height', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml_attr 'width' => (is => 'rw', xml_is_optional => '1', xml_name => 'width', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');

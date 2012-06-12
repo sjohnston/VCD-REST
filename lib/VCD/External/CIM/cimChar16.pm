@@ -2,7 +2,7 @@ package VCD::External::CIM::cimChar16;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
 extends 'VCD::External::CIM::cimString';
 

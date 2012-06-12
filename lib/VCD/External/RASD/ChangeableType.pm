@@ -2,7 +2,7 @@ package VCD::External::RASD::ChangeableType;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
 extends 'VCD::External::CIM::cimUnsignedShort';
 

@@ -2,7 +2,7 @@ package VCD::VCloud_1_5::GuestCustomizationSectionType;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
 extends 'VCD::External::OVF::Section_Type';
 

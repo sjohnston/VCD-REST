@@ -2,9 +2,9 @@ package VCD::VCloud_1_5::RelocateParamsType;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
-with 'VCD::HasXMLTrait';
+extends 'VCD::Schema::Type';
 
 has_xml 'Datastore' => (is => 'rw', isa => 'VCD::VCloud_1_5::ReferenceType', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 

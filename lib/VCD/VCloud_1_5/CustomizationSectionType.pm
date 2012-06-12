@@ -2,7 +2,7 @@ package VCD::VCloud_1_5::CustomizationSectionType;
 
 use Moose;
 
-use VCD::HasXML;
+use VCD::Schema;
 
 extends 'VCD::External::OVF::Section_Type';
 
