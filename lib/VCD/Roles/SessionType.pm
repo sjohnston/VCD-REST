@@ -2,7 +2,7 @@ package VCD::Roles::SessionType;
 
 use Moose::Role;
 
-use VCD::HasXML;
+use VCD::Schema;
 
 use VCD::VCloud_1_5::OrgListType;
 
