@@ -117,4 +117,10 @@ sub get_xml_attributes {
     return @attrs;
 }
 
+sub put {
+    my $self = shift;
+
+    $self->vcd_rest->put($self->href, $self->type, $self->to_xml_string);
+}
+
 1;

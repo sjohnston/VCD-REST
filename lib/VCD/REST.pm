@@ -138,6 +138,23 @@ sub get {
     return XMLin($res->decoded_content, NsExpand => 1, KeyAttr => [], KeepRoot => 1);
 }
 
+sub put {
+    my ($self, $url, $content_type, $data) = @_;
+
+    my $req = $self->request(PUT => $url);
+
+    $req->content_type($content_type);
+    $req->content($data);
+    my $res = $self->ua->request($req);
+
+    unless ($res->is_success) {
+        die $res->decoded_content if $res->decoded_content;
+        die $res->status_line;
+    }
+
+    return $res->decoded_content;
+}
+
 __PACKAGE__->meta->make_immutable;
 
 1;
