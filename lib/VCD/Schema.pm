@@ -5,6 +5,9 @@ use List::Util qw(first);
 
 Moose::Exporter->setup_import_methods(
     with_meta => ['has_xml', 'has_xml_attr', 'has_xml_link'],
+    class_metaroles => {
+        class => ['VCD::Schema::Meta'],
+    },
 );
 
 sub has_xml {
@@ -20,6 +23,8 @@ sub has_xml {
     $opts{'traits'} ||= ['VCD::Schema::Element'];
 
     my $attr = $meta->add_attribute($name, %opts);
+
+    $meta->add_xml_attribute($name);
 
     $meta->add_method( "_build_$name" => _make_builder($attr, $xml_name, $name) );
 }

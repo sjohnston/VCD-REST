@@ -80,9 +80,7 @@ sub to_xml {
         $node = $doc->createElementNS('http://www.vmware.com/vcloud/v1.5', $self->xml_name);
     }
 
-    my $meta = $self->meta;
-
-    foreach my $attr ( $meta->get_all_attributes ) {
+    foreach my $attr ( $self->get_xml_attributes ) {
         my $type = $attr->type_constraint;
         my $reader = $attr->get_read_method;
         my $value = $self->$reader if ($reader);
@@ -106,6 +104,17 @@ sub to_xml {
     }
 
     return $node;
+}
+
+sub get_xml_attributes {
+    my $self = shift;
+    my $meta = $self->meta;
+
+    my ($super) = $meta->superclasses;
+    my @attrs = $super->get_xml_attributes if ($super && $super->can('get_xml_attributes'));
+    push @attrs, $meta->map_xml_attributes(sub { $meta->get_attribute($_) });
+
+    return @attrs;
 }
 
 1;
