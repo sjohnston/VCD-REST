@@ -6,8 +6,8 @@ use VCD::Schema;
 
 extends 'VCD::VCloud_1_5::ResourceType';
 
-has_xml 'Question' => (is => 'ro', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'QuestionId' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Question' => (is => 'ro', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'QuestionId' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Choices' => (is => 'rw', isa => 'ArrayRef[VCD::VCloud_1_5::VmQuestionAnswerChoiceType]', xml_maximum => 'unbounded', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 use VCD::VCloud_1_5::VmQuestionAnswerChoiceType;

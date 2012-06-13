@@ -8,12 +8,12 @@ extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
 has_xml_attr 'network' => (is => 'rw', xml_name => 'network', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml_attr 'needsCustomization' => (is => 'ro', xml_is_optional => '1', xml_name => 'needsCustomization', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'NetworkConnectionIndex' => (is => 'rw', isa => 'Str', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'NetworkConnectionIndex' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'IpAddress' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::IpAddressType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'ExternalIpAddress' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::IpAddressType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'IsConnected' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IsConnected' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'MACAddress' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'IpAddressAllocationMode' => (is => 'rw', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IpAddressAllocationMode' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 use VCD::VCloud_1_5::IpAddressType;
 

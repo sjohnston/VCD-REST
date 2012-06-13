@@ -6,8 +6,8 @@ use VCD::Schema;
 
 extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
-has_xml 'Cpu' => (is => 'rw', isa => 'VCD::VCloud_1_5::CapacityWithUsageType', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Memory' => (is => 'rw', isa => 'VCD::VCloud_1_5::CapacityWithUsageType', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Cpu' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::CapacityWithUsageType]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Memory' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::CapacityWithUsageType]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 use VCD::VCloud_1_5::CapacityWithUsageType;
 

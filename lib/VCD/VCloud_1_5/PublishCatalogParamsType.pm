@@ -6,7 +6,7 @@ use VCD::Schema;
 
 extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
-has_xml 'IsPublished' => (is => 'rw', isa => 'Str', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IsPublished' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
 

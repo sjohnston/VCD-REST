@@ -7,9 +7,9 @@ use VCD::Schema;
 extends 'VCD::Schema::Type';
 
 has_xml_attr 'lang' => (is => 'rw', xml_is_optional => '1', xml_name => '{http://www.w3.org/XML/1998/namespace}lang', xml_namespace => 'http://www.w3.org/XML/1998/namespace');
-has_xml 'References' => (is => 'rw', isa => 'VCD::External::OVF::References_Type', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml 'References' => (is => 'rw', isa => 'Maybe[VCD::External::OVF::References_Type]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml 'Section' => (is => 'rw', isa => 'ArrayRef[Str]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
-has_xml 'Content' => (is => 'rw', isa => 'Str', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml 'Content' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml 'Strings' => (is => 'rw', isa => 'ArrayRef[VCD::External::OVF::Strings_Type]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 
 use VCD::External::OVF::References_Type;

@@ -6,7 +6,7 @@ use VCD::Schema;
 
 extends 'VCD::External::OVF::Section_Type';
 
-has_xml 'Annotation' => (is => 'rw', isa => 'VCD::External::OVF::Msg_Type', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml 'Annotation' => (is => 'rw', isa => 'Maybe[VCD::External::OVF::Msg_Type]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 
 use VCD::External::OVF::Msg_Type;
 

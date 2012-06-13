@@ -6,7 +6,7 @@ use VCD::Schema;
 
 extends 'VCD::VCloud_1_5::OrgType';
 
-has_xml 'Settings' => (is => 'rw', isa => 'VCD::VCloud_1_5::OrgSettingsType', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Settings' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::OrgSettingsType]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Users' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::UsersListType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Groups' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::GroupsListType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Catalogs' => (is => 'ro', isa => 'Maybe[VCD::VCloud_1_5::CatalogsListType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');

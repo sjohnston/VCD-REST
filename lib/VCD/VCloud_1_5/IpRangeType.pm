@@ -6,8 +6,8 @@ use VCD::Schema;
 
 extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
-has_xml 'StartAddress' => (is => 'rw', isa => 'VCD::VCloud_1_5::IpAddressType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'EndAddress' => (is => 'rw', isa => 'VCD::VCloud_1_5::IpAddressType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'StartAddress' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::IpAddressType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'EndAddress' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::IpAddressType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 use VCD::VCloud_1_5::IpAddressType;
 

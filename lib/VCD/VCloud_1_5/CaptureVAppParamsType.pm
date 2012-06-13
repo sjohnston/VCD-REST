@@ -6,7 +6,7 @@ use VCD::Schema;
 
 extends 'VCD::VCloud_1_5::ParamsType';
 
-has_xml 'Source' => (is => 'rw', isa => 'VCD::VCloud_1_5::ReferenceType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Source' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Section' => (is => 'rw', isa => 'ArrayRef[Str]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 
 use VCD::VCloud_1_5::ReferenceType;

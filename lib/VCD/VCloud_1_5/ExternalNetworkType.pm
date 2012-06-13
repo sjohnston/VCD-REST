@@ -6,7 +6,7 @@ use VCD::Schema;
 
 extends 'VCD::VCloud_1_5::NetworkType';
 
-has_xml 'ProviderInfo' => (is => 'ro', isa => 'Str', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'ProviderInfo' => (is => 'ro', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
 

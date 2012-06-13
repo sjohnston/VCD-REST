@@ -7,7 +7,7 @@ use VCD::Schema;
 extends 'VCD::VCloud_1_5::VCloudExtensibleType';
 
 has_xml_attr 'sourceDelete' => (is => 'rw', xml_is_optional => '1', xml_name => 'sourceDelete', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Source' => (is => 'rw', isa => 'VCD::VCloud_1_5::ReferenceType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Source' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::ReferenceType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'VAppScopedLocalId' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'InstantiationParams' => (is => 'rw', isa => 'Maybe[VCD::VCloud_1_5::InstantiationParamsType]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'NetworkAssignment' => (is => 'rw', isa => 'ArrayRef[VCD::VCloud_1_5::NetworkAssignmentType]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
