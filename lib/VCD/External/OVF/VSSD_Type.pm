@@ -4,7 +4,7 @@ use Moose;
 
 use VCD::Schema;
 
-extends 'VCD::External::VSSD::CIM_VirtualSystemSettingData_Type';
+extends 'VCD::External::OVF::CIM_VirtualSystemSettingData_Type';
 
 
 

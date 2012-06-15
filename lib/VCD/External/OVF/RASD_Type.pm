@@ -4,7 +4,7 @@ use Moose;
 
 use VCD::Schema;
 
-extends 'VCD::External::RASD::CIM_ResourceAllocationSettingData_Type';
+extends 'VCD::External::OVF::CIM_ResourceAllocationSettingData_Type';
 
 has_xml_attr 'required' => (is => 'rw', xml_is_optional => '1', xml_name => 'required', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml_attr 'configuration' => (is => 'rw', xml_is_optional => '1', xml_name => 'configuration', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
