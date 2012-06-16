@@ -9,6 +9,8 @@ extends 'VCD::Schema::External::OVF::qualifierString';
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 
 
 =head1 ATTRIBUTES

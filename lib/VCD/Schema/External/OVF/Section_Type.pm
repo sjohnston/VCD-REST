@@ -12,6 +12,8 @@ has_xml 'Info' => (is => 'rw', isa => 'Maybe[VCD::Schema::External::OVF::Msg_Typ
 use VCD::Schema::External::OVF::Msg_Type;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 Base type for Sections, subclassing this is the most common form of

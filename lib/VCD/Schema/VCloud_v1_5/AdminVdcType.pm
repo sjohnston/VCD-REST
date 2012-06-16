@@ -17,6 +17,8 @@ has_xml 'UsesFastProvisioning' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum 
 use VCD::Schema::VCloud_v1_5::ReferenceType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 0.9

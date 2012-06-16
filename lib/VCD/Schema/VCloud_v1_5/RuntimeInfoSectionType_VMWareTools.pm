@@ -10,6 +10,8 @@ has_xml_attr 'version' => (is => 'ro', xml_name => 'version', xml_namespace => '
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 
 
 =head1 ATTRIBUTES

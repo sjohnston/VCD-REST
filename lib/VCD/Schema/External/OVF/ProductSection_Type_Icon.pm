@@ -13,6 +13,8 @@ has_xml_attr 'fileRef' => (is => 'rw', xml_name => 'fileRef', xml_namespace => '
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 
 
 =head1 ATTRIBUTES

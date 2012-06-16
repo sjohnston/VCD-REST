@@ -14,6 +14,8 @@ use VCD::Schema::VCloud_v1_5::IpAddressType;
 use VCD::Schema::VCloud_v1_5::IpsecVpnTunnelType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 1.5

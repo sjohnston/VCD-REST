@@ -25,6 +25,8 @@ use VCD::Schema::VCloud_v1_5::ComputeCapacityType;
 use VCD::Schema::VCloud_v1_5::ResourceEntitiesType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 0.9

@@ -11,6 +11,8 @@ has_xml 'Annotation' => (is => 'rw', isa => 'Maybe[VCD::Schema::External::OVF::M
 use VCD::Schema::External::OVF::Msg_Type;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 User defined annotation

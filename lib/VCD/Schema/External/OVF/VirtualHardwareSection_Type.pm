@@ -15,6 +15,8 @@ use VCD::Schema::External::OVF::VSSD_Type;
 use VCD::Schema::External::OVF::RASD_Type;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 Specifies virtual hardware requirements for a virtual machine

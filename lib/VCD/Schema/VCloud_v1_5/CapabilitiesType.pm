@@ -11,6 +11,8 @@ has_xml 'SupportedHardwareVersions' => (is => 'ro', isa => 'Maybe[VCD::Schema::V
 use VCD::Schema::VCloud_v1_5::SupportedHardwareVersionsType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 1.5

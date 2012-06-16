@@ -11,6 +11,8 @@ has_xml 'Network' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::External::OVF::N
 use VCD::Schema::External::OVF::NetworkSection_Type_Network;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 Descriptions of logical networks used within the package

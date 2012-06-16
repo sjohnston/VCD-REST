@@ -11,6 +11,8 @@ has_xml 'Configuration' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::External::
 use VCD::Schema::External::OVF::DeploymentOptionSection_Type_Configuration;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 Enumeration of discrete deployment options

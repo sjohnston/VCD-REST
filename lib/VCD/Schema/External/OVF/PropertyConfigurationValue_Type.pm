@@ -11,6 +11,8 @@ has_xml_attr 'configuration' => (is => 'rw', xml_is_optional => '1', xml_name =>
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 Type for alternative default values for properties when

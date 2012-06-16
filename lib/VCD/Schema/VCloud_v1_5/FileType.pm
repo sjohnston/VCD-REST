@@ -12,6 +12,8 @@ has_xml_attr 'checksum' => (is => 'ro', xml_name => 'checksum', xml_namespace =>
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 0.9

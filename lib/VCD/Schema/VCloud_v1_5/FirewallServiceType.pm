@@ -13,6 +13,8 @@ has_xml 'FirewallRule' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::VCloud_v1_5
 use VCD::Schema::VCloud_v1_5::FirewallRuleType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 Represents a network firewall service.

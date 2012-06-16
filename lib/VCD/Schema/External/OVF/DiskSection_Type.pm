@@ -11,6 +11,8 @@ has_xml 'Disk' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::External::OVF::Virt
 use VCD::Schema::External::OVF::VirtualDiskDesc_Type;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 Descriptions of virtual disks used within the package

@@ -11,6 +11,8 @@ has_xml 'Description' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', x
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 0.9

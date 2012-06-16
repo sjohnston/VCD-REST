@@ -13,6 +13,8 @@ has_xml 'CustomOrgLdapSettings' => (is => 'rw', isa => 'Maybe[VCD::Schema::VClou
 use VCD::Schema::VCloud_v1_5::CustomOrgLdapSettingsType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 1.5

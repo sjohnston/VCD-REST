@@ -14,6 +14,8 @@ has_xml 'IsDeployed' => (is => 'ro', isa => 'Maybe[Str]', xml_minimum => '0', xm
 use VCD::Schema::VCloud_v1_5::NetworkConfigurationType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 0.9

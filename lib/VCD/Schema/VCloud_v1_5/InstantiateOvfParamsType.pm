@@ -11,6 +11,8 @@ has_xml 'AllEULAsAccepted' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 Represents vApp instantiation from OVF parameters

@@ -16,6 +16,8 @@ has_xml 'Protocol' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_
 use VCD::Schema::VCloud_v1_5::IpAddressType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 0.9

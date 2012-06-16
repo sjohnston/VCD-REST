@@ -10,6 +10,8 @@ has_xml_attr 'key' => (is => 'rw', xml_name => 'key', xml_namespace => 'http://w
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 0.9

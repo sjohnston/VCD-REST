@@ -13,6 +13,8 @@ has_xml 'Section' => (is => 'rw', isa => 'ArrayRef[Str]', xml_maximum => 'unboun
 use VCD::Schema::VCloud_v1_5::ReferenceType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 0.9

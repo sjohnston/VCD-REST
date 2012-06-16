@@ -13,6 +13,8 @@ has_xml 'Entity' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::External::OVF::En
 use VCD::Schema::External::OVF::Entity_Type;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 Type for root OVF environment

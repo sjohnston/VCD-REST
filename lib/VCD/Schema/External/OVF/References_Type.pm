@@ -11,6 +11,8 @@ has_xml 'File' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::External::OVF::File
 use VCD::Schema::External::OVF::File_Type;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 Type for list of external resources

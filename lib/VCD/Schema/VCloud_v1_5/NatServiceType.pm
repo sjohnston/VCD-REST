@@ -13,6 +13,8 @@ has_xml 'NatRule' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::VCloud_v1_5::Nat
 use VCD::Schema::VCloud_v1_5::NatRuleType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 Represents a NAT network service.

@@ -11,6 +11,8 @@ has_xml 'Item' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::External::OVF::RASD
 use VCD::Schema::External::OVF::RASD_Type;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 Resource constraints on a VirtualSystemCollection

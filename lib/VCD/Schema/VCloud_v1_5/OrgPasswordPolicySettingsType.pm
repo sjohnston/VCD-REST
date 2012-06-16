@@ -12,6 +12,8 @@ has_xml 'AccountLockoutIntervalMinutes' => (is => 'rw', isa => 'Maybe[Str]', xml
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 Represents the settings related to Password Policy.

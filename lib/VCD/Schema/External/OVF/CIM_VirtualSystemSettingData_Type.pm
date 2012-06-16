@@ -33,6 +33,8 @@ has_xml 'VirtualSystemType' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => 
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 
 
 =head1 ATTRIBUTES

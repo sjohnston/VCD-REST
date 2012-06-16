@@ -13,6 +13,8 @@ has_xml 'Msg' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::External::OVF::Strin
 use VCD::Schema::External::OVF::Strings_Type_Msg;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 Type for string resource bundle

@@ -14,6 +14,8 @@ has_xml 'DelayAfterPowerOnSeconds' => (is => 'rw', isa => 'Maybe[Str]', xml_maxi
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 1.5

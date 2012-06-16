@@ -11,6 +11,8 @@ has_xml 'License' => (is => 'rw', isa => 'Maybe[VCD::Schema::External::OVF::Msg_
 use VCD::Schema::External::OVF::Msg_Type;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 End-User License Agreement

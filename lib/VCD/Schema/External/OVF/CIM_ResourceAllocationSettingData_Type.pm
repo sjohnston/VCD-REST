@@ -35,6 +35,8 @@ has_xml 'Weight' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', xml_na
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 
 
 =head1 ATTRIBUTES

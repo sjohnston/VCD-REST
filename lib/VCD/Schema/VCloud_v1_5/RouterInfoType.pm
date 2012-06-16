@@ -11,6 +11,8 @@ has_xml 'ExternalIp' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::IpA
 use VCD::Schema::VCloud_v1_5::IpAddressType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 
 
 =head1 ATTRIBUTES

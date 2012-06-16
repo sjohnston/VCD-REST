@@ -11,6 +11,8 @@ has_xml_attr 'value' => (is => 'rw', xml_name => 'value', xml_namespace => 'http
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 
 
 =head1 ATTRIBUTES

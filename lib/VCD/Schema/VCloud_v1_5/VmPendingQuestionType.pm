@@ -13,6 +13,8 @@ has_xml 'Choices' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::VCloud_v1_5::VmQ
 use VCD::Schema::VCloud_v1_5::VmQuestionAnswerChoiceType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 0.9

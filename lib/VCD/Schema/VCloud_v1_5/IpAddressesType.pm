@@ -11,6 +11,8 @@ has_xml 'IpAddress' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::VCloud_v1_5::I
 use VCD::Schema::VCloud_v1_5::IpAddressType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 0.9

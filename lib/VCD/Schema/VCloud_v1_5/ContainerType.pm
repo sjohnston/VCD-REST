@@ -13,6 +13,8 @@ has_xml_attr 'total' => (is => 'ro', xml_is_optional => '1', xml_name => 'total'
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 Container for query result sets.

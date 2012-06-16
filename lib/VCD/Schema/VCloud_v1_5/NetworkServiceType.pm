@@ -10,6 +10,8 @@ has_xml 'IsEnabled' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 This is the root type of all NetworkServices

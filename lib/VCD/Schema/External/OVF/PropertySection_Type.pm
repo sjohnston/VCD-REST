@@ -11,6 +11,8 @@ has_xml 'Property' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::External::OVF::
 use VCD::Schema::External::OVF::PropertySection_Type_Property;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 Key/value pairs of assigned properties for an entity

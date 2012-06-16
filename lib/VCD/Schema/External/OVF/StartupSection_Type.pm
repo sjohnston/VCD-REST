@@ -11,6 +11,8 @@ has_xml 'Item' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::External::OVF::Star
 use VCD::Schema::External::OVF::StartupSection_Type_Item;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 Specifies the order in which entities in a VirtualSystemCollection are

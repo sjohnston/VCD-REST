@@ -25,6 +25,8 @@ use VCD::Schema::External::OVF::ProductSection_Type_Property;
 use VCD::Schema::External::OVF::cimString;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 Product information for a virtual appliance

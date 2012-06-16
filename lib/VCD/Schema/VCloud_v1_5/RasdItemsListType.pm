@@ -10,6 +10,8 @@ has_xml 'Item' => (is => 'rw', isa => 'ArrayRef[Str]', xml_maximum => 'unbounded
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 0.9

@@ -14,6 +14,8 @@ has_xml 'Datetime' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http:/
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 
 
 =head1 ATTRIBUTES

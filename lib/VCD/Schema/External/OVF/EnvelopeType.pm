@@ -16,6 +16,8 @@ use VCD::Schema::External::OVF::Strings_Type;
 use VCD::Schema::External::OVF::References_Type;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 Root OVF descriptor type

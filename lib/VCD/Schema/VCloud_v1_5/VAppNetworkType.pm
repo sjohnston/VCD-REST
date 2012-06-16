@@ -10,6 +10,8 @@ has_xml_attr 'deployed' => (is => 'ro', xml_is_optional => '1', xml_name => 'dep
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 1.5

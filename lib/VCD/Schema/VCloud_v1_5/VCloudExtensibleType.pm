@@ -11,6 +11,8 @@ has_xml 'VCloudExtension' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::VCloud_v
 use VCD::Schema::VCloud_v1_5::VCloudExtensionType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 0.9

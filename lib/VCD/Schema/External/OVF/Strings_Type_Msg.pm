@@ -10,6 +10,8 @@ has_xml_attr 'msgid' => (is => 'rw', xml_name => 'msgid', xml_namespace => 'http
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 String element value

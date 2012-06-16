@@ -17,6 +17,8 @@ has_xml 'StorageLeaseExpiration' => (is => 'ro', isa => 'Maybe[Str]', xml_minimu
 use VCD::Schema::VCloud_v1_5::LinkType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 0.9

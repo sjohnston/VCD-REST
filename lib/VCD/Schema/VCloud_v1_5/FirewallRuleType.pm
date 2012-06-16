@@ -21,6 +21,8 @@ use VCD::Schema::VCloud_v1_5::FirewallRuleType_Protocols;
 use VCD::Schema::VCloud_v1_5::FirewallIpAddressType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 0.9

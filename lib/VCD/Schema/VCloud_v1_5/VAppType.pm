@@ -15,6 +15,8 @@ use VCD::Schema::VCloud_v1_5::OwnerType;
 use VCD::Schema::VCloud_v1_5::VAppChildrenType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 0.9

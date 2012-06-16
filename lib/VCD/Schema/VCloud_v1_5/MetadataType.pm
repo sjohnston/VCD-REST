@@ -11,6 +11,8 @@ has_xml 'MetadataEntry' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::VCloud_v1_
 use VCD::Schema::VCloud_v1_5::MetadataEntryType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 
 
 =head1 ATTRIBUTES

@@ -11,6 +11,8 @@ has_xml_attr 'org' => (is => 'ro', xml_name => 'org', xml_namespace => 'http://w
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 1.5

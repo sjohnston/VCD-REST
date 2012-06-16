@@ -15,6 +15,8 @@ has_xml 'YieldOnPoll' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', x
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 1.5

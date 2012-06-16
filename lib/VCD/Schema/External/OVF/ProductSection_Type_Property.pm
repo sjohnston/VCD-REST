@@ -20,6 +20,8 @@ use VCD::Schema::External::OVF::Msg_Type;
 use VCD::Schema::External::OVF::PropertyConfigurationValue_Type;
 
 
+__PACKAGE__->meta->make_immutable;
+
 
 
 =head1 ATTRIBUTES

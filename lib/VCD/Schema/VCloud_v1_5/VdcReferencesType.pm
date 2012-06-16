@@ -11,6 +11,8 @@ has_xml 'VdcReference' => (is => 'ro', isa => 'ArrayRef[VCD::Schema::VCloud_v1_5
 use VCD::Schema::VCloud_v1_5::ReferenceType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 1.0

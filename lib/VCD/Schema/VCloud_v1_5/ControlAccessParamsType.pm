@@ -13,6 +13,8 @@ has_xml 'AccessSettings' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5:
 use VCD::Schema::VCloud_v1_5::AccessSettingsType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 0.9

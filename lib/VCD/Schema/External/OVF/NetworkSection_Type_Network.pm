@@ -12,6 +12,8 @@ has_xml 'Description' => (is => 'rw', isa => 'Maybe[VCD::Schema::External::OVF::
 use VCD::Schema::External::OVF::Msg_Type;
 
 
+__PACKAGE__->meta->make_immutable;
+
 
 
 =head1 ATTRIBUTES

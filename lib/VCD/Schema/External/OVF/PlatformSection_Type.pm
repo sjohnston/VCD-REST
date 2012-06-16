@@ -15,6 +15,8 @@ has_xml 'Timezone' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', xml_
 use VCD::Schema::External::OVF::cimString;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 Information about deployment platform

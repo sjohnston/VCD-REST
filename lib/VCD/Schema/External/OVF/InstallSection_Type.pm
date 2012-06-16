@@ -10,6 +10,8 @@ has_xml_attr 'initialBootStopDelay' => (is => 'rw', xml_is_optional => '1', xml_
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 If present indicates that the virtual machine needs to be initially booted

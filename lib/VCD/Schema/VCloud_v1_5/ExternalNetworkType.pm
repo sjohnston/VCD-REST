@@ -10,6 +10,8 @@ has_xml 'ProviderInfo' => (is => 'ro', isa => 'Maybe[Str]', xml_namespace => 'ht
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 1.0

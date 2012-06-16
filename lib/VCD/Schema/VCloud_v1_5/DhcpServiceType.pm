@@ -13,6 +13,8 @@ has_xml 'IpRange' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::IpRang
 use VCD::Schema::VCloud_v1_5::IpRangeType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 DESCRIPTION
 
 Represents a DHCP network service.

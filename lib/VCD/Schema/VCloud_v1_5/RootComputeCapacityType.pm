@@ -14,6 +14,8 @@ has_xml 'IsHA' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_mini
 use VCD::Schema::VCloud_v1_5::ProviderVdcCapacityType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 0.9

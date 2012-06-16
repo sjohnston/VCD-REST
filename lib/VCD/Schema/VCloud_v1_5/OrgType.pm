@@ -11,6 +11,8 @@ has_xml 'IsEnabled' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 0.9

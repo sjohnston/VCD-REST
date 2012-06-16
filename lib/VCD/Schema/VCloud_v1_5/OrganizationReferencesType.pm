@@ -11,6 +11,8 @@ has_xml 'OrganizationReference' => (is => 'ro', isa => 'ArrayRef[VCD::Schema::VC
 use VCD::Schema::VCloud_v1_5::OrganizationReferenceType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 0.9

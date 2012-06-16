@@ -12,6 +12,8 @@ has_xml_attr 'forceCustomization' => (is => 'rw', xml_is_optional => '1', xml_na
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 0.9

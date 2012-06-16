@@ -10,6 +10,8 @@ has_xml_attr 'qualifier' => (is => 'rw', xml_name => 'qualifier', xml_namespace 
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 
 
 =head1 ATTRIBUTES

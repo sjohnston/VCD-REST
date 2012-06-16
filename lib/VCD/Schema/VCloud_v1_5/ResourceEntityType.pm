@@ -12,6 +12,8 @@ has_xml 'Files' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::FilesLis
 use VCD::Schema::VCloud_v1_5::FilesListType;
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 0.9

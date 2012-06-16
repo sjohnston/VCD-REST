@@ -10,6 +10,8 @@ has_xml_attr 'rel' => (is => 'rw', xml_name => 'rel', xml_namespace => 'http://w
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 =head1 API
 
 Available Since API: 1.5

@@ -10,6 +10,8 @@ has_xml 'Value' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_min
 
 
 
+__PACKAGE__->meta->make_immutable;
+
 
 
 =head1 ATTRIBUTES
