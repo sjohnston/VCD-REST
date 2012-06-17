@@ -4,7 +4,7 @@ use Moose;
 
 use Data::Dumper;
 use XML::LibXML::Simple qw(XMLin);
-use VCD::VCloud_1_5::SessionType;
+use VCD::Schema::VCloud_v1_5::SessionType;
 use HTTP::Request;
 use LWP::UserAgent;
 
@@ -17,7 +17,7 @@ has ua => (
 
 has session => (
     is       => 'rw',
-    isa      => 'VCD::VCloud_1_5::SessionType',
+    isa      => 'VCD::Schema::VCloud_v1_5::SessionType',
     lazy     => 1,
     builder  => '_build_session',
 );
@@ -101,7 +101,7 @@ sub _build_session {
     my $args = XMLin($res->decoded_content, NsExpand => 1, KeyAttr => [], KeepRoot => 1);
 
     my ($name) = keys %$args;
-    return VCD::VCloud_1_5::SessionType->new( xml_name => $name, xml_hash => $args->{$name}, vcd_rest => $self );
+    return VCD::Schema::VCloud_v1_5::SessionType->new( xml_name => $name, xml_hash => $args->{$name}, vcd_rest => $self );
 }
 
 sub request {
