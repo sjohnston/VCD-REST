@@ -9,8 +9,8 @@ extends 'VCD::Schema::VCloud_v1_5::EntityType';
 has_xml 'VimObjectRef' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::Extension::VimObjectRefType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 has_xml 'Enabled' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 has_xml 'Busy' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
-has_xml 'ThresholdYellowGb' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::Extension::DatastoreType_ThresholdYellowGb]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
-has_xml 'ThresholdRedGb' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::Extension::DatastoreType_ThresholdRedGb]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
+has_xml 'ThresholdYellowGb' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
+has_xml 'ThresholdRedGb' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 has_xml 'SystemMessages' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 has_xml 'DatastoreFsType' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 has_xml 'VcDisplayName' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
@@ -27,8 +27,6 @@ has_xml 'RequestedStorageMb' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum =>
 has_xml 'RequestedStorageGb' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 has_xml 'vimPropertyPageUrl' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
-use VCD::Schema::VCloud_v1_5::Extension::DatastoreType_ThresholdYellowGb;
-use VCD::Schema::VCloud_v1_5::Extension::DatastoreType_ThresholdRedGb;
 use VCD::Schema::VCloud_v1_5::Extension::VimObjectRefType;
 
 
