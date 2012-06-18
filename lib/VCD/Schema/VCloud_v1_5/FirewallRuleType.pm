@@ -11,14 +11,13 @@ has_xml 'Description' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', x
 has_xml 'Policy' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Protocols' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::FirewallRuleType_Protocols]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Port' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'DestinationIp' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::FirewallIpAddressType]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'DestinationIp' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'SourcePort' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'SourceIp' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::FirewallIpAddressType]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'SourceIp' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Direction' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'EnableLogging' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 use VCD::Schema::VCloud_v1_5::FirewallRuleType_Protocols;
-use VCD::Schema::VCloud_v1_5::FirewallIpAddressType;
 
 
 __PACKAGE__->meta->make_immutable;
