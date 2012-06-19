@@ -89,7 +89,7 @@ sub has_xml_link {
             my $self = shift;
             my $link = first { $_->{'rel'} eq $rel && $_->{'type'} eq $type }
                 @{ $self->xml_hash->{'{http://www.vmware.com/vcloud/v1.5}Link'} };
-            return $class->new( href => $link->{'href'}, vcd_rest => $self->vcd_rest );
+            return $class->new( href => $link->{'href'}, type => $type, vcd_rest => $self->vcd_rest );
         }
     );
 }

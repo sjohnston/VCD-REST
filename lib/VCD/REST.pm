@@ -178,11 +178,9 @@ VCD::REST - Object Oriented access to the VMware vCloud REST API
 =head1 EXAMPLE
 
     use VCD::REST;
-    use VCD::VCloud_1_5::OrgType;
 
     my $vcd = VCD::REST->new(host => $host, user_name => $username, password => $password);
-    my $href = $vcd->session->org_list->[0]->href;
-    my $org = VCD::VCloud_1_5::OrgType->new( vcd_rest => $vcd, href => $href );
+    my $org = $vcd->session->org_list->[0]->get;
     print $org->FullName;
 
 =cut

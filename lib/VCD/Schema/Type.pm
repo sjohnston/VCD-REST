@@ -120,6 +120,17 @@ sub get_xml_attributes {
     return @attrs;
 }
 
+sub get {
+    my $self = shift;
+    my $xml = $self->vcd_rest->get($self->href);
+    my ($name) = keys %$xml;
+    $self->xml_name($name);
+
+    my $class = VCD::Schema::TypeMap::get_schema_type(1.5, $self->type);
+    eval "use $class;";
+    my $obj = $class->new( xml_name => $name, xml_hash => $xml->{$name}->[0] );
+}
+
 sub put {
     my $self = shift;
 
