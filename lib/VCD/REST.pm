@@ -137,13 +137,20 @@ sub _do_http {
         die $res->status_line;
     }
 
-    return XMLin($res->decoded_content, NsExpand => 1, KeyAttr => [], KeepRoot => 1, ForceArray => 1);
+    return XMLin($res->decoded_content, NsExpand => 1, KeyAttr => [], KeepRoot => 1, ForceArray => 1)
+        if ($res->decoded_content);
 }
 
 sub get {
     my ($self, $href) = @_;
 
     return $self->_do_http(GET => $href);
+}
+
+sub delete {
+    my ($self, $href) = @_;
+
+    return $self->_do_http(DELETE => $href);
 }
 
 sub post {

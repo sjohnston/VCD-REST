@@ -126,6 +126,12 @@ sub put {
     $self->vcd_rest->put($self->href, $self->type, $self->to_xml_string);
 }
 
+sub delete {
+    my $self = shift;
+
+    $self->vcd_rest->delete($self->href);
+}
+
 sub post_link {
     my ($self, $rel, $type, $xml_name, $data) = @_;
 
@@ -141,7 +147,7 @@ sub post_link {
     my $xml = $self->vcd_rest->post($link->href, $type, $obj->to_xml_string);
     my ($name) = keys %$xml;
 
-    return $class->new( xml_name => $name, xml_hash => $xml->{$name}->[0] );
+    return $class->new( xml_name => $name, xml_hash => $xml->{$name}->[0], vcd_rest => $self->vcd_rest );
 }
 
 1;
