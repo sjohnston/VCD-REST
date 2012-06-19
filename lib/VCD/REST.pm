@@ -123,28 +123,13 @@ sub type {
     return "application/vnd.vmware.vcloud.$type+xml";
 }
 
-sub get {
-    my ($self, $href) = @_;
+sub _do_http {
+    my ($self, $method, $url, $content_type, $data) = @_;
 
-    my $req = $self->request(GET => $href);
+    my $req = $self->request($method => $url);
 
-    my $res = $self->ua->request($req);
-
-    unless ($res->is_success) {
-        die $res->status_line;
-    }
-
-    #warn $res->decoded_content;
-    return XMLin($res->decoded_content, NsExpand => 1, KeyAttr => [], KeepRoot => 1);
-}
-
-sub put {
-    my ($self, $url, $content_type, $data) = @_;
-
-    my $req = $self->request(PUT => $url);
-
-    $req->content_type($content_type);
-    $req->content($data);
+    $req->content_type($content_type) if ($content_type);
+    $req->content($data) if ($data);
     my $res = $self->ua->request($req);
 
     unless ($res->is_success) {
@@ -152,7 +137,25 @@ sub put {
         die $res->status_line;
     }
 
-    return $res->decoded_content;
+    return XMLin($res->decoded_content, NsExpand => 1, KeyAttr => [], KeepRoot => 1, ForceArray => 1);
+}
+
+sub get {
+    my ($self, $href) = @_;
+
+    return $self->_do_http(GET => $href);
+}
+
+sub post {
+    my ($self, $href, $content_type, $data) = @_;
+
+    return $self->_do_http(POST => $href, $content_type, $data);
+}
+
+sub put {
+    my ($self, $href, $content_type, $data) = @_;
+
+    return $self->_do_http(PUT => $href, $content_type, $data);
 }
 
 __PACKAGE__->meta->make_immutable;

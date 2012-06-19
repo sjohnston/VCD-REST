@@ -1,7 +1,10 @@
 package VCD::Schema::Type;
+
 use Moose;
 use VCD::Schema;
+use VCD::Schema::TypeMap;
 
+use List::Util qw(first);
 use Scalar::Util 'blessed';
 
 has xml_hash => (
@@ -54,7 +57,7 @@ sub _build_xml_hash {
     my $xml = $self->vcd_rest->get($self->href);
     my ($name) = keys %$xml;
     $self->xml_name($name);
-    return $xml->{$name};
+    return $xml->{$name}->[0];
 }
 
 sub to_xml_string {
@@ -121,6 +124,24 @@ sub put {
     my $self = shift;
 
     $self->vcd_rest->put($self->href, $self->type, $self->to_xml_string);
+}
+
+sub post_link {
+    my ($self, $rel, $type, $xml_name, $data) = @_;
+
+    my $links = $self->Link;
+    my $link = first { $_->rel eq $rel && $_->type eq $type } @{ $self->Link };
+
+    die "Can't find link" unless ($link);
+
+    my $class = VCD::Schema::TypeMap::get_schema_type(1.5, $type);
+    eval "use $class;";
+    my $obj = $class->new( %$data, xml_name => $xml_name );
+
+    my $xml = $self->vcd_rest->post($link->href, $type, $obj->to_xml_string);
+    my ($name) = keys %$xml;
+
+    return $class->new( xml_name => $name, xml_hash => $xml->{$name}->[0] );
 }
 
 1;

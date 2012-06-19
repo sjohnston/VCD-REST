@@ -59,7 +59,7 @@ sub _make_builder {
 
     return sub {
         my $self = shift;
-        my $xml_hash = $self->xml_hash->{$xml_name};
+        my $xml_hash = $self->xml_hash->{$xml_name}[0];
         return $type->new( xml_name => $xml_name, xml_hash => $xml_hash, vcd_rest => $self->vcd_rest )
             if ($xml_hash);
     } if ($type && $type ne 'Str');
