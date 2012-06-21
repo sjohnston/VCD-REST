@@ -134,7 +134,7 @@ sub type {
 sub _do_http {
     my ($self, $method, $url, $content_type, $data) = @_;
 
-    my $req = $self->request($method => $url);
+    my $req = $self->request($method => $self->url($url));
 
     $req->content_type($content_type) if ($content_type);
     $req->content($data) if ($data);
