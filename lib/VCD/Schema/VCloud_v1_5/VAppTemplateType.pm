@@ -13,9 +13,6 @@ has_xml 'Children' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::VAppT
 has_xml 'Section' => (is => 'ro', isa => 'ArrayRef[Str]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml 'VAppScopedLocalId' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::VAppTemplateChildrenType;
-use VCD::Schema::VCloud_v1_5::OwnerType;
-
 
 __PACKAGE__->meta->make_immutable;
 

@@ -9,8 +9,6 @@ extends 'VCD::Schema::Type';
 has_xml_attr 'required' => (is => 'rw', xml_is_optional => '1', xml_name => 'required', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml 'Info' => (is => 'rw', isa => 'Maybe[VCD::Schema::External::OVF::Msg_Type]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 
-use VCD::Schema::External::OVF::Msg_Type;
-
 
 __PACKAGE__->meta->make_immutable;
 

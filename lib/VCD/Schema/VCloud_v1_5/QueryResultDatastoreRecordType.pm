@@ -20,7 +20,6 @@ has_xml_attr 'moref' => (is => 'ro', xml_name => 'moref', xml_namespace => 'http
 has_xml_attr 'numberOfProviderVdcs' => (is => 'ro', xml_name => 'numberOfProviderVdcs', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

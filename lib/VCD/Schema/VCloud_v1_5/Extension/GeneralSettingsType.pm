@@ -36,8 +36,6 @@ has_xml 'VcTruststoreType' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '
 has_xml 'VmrcVersion' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 has_xml 'VerifyVsmCertificates' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
-use VCD::Schema::VCloud_v1_5::SyslogServerSettingsType;
-
 
 __PACKAGE__->meta->make_immutable;
 

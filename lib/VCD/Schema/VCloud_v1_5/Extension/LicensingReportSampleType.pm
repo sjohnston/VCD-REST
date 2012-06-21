@@ -10,9 +10,6 @@ has_xml_attr 'observationDate' => (is => 'ro', xml_name => 'observationDate', xm
 has_xml 'ManagedServerMetrics' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::Extension::LicensingReportSampleType_ManagedServerMetrics]', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 has_xml 'VirtualMachineMetrics' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::Extension::LicensingReportSampleType_VirtualMachineMetrics]', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
-use VCD::Schema::VCloud_v1_5::Extension::LicensingReportSampleType_VirtualMachineMetrics;
-use VCD::Schema::VCloud_v1_5::Extension::LicensingReportSampleType_ManagedServerMetrics;
-
 
 __PACKAGE__->meta->make_immutable;
 

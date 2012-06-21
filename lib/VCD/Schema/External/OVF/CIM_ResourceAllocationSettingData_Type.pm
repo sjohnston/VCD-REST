@@ -34,7 +34,6 @@ has_xml 'VirtualQuantityUnits' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum 
 has_xml 'Weight' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 

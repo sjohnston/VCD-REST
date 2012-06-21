@@ -8,8 +8,6 @@ extends 'VCD::Schema::Type';
 
 has_xml 'VirtualMachine' => (is => 'ro', isa => 'ArrayRef[VCD::Schema::VCloud_v1_5::Extension::LicensingVirtualMachineType]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
-use VCD::Schema::VCloud_v1_5::Extension::LicensingVirtualMachineType;
-
 
 __PACKAGE__->meta->make_immutable;
 

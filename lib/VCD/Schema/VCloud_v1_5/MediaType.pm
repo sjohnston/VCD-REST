@@ -10,8 +10,6 @@ has_xml_attr 'imageType' => (is => 'rw', xml_name => 'imageType', xml_namespace 
 has_xml_attr 'size' => (is => 'ro', xml_name => 'size', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Owner' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::OwnerType]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::OwnerType;
-
 
 __PACKAGE__->meta->make_immutable;
 

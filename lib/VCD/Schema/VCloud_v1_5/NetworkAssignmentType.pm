@@ -10,7 +10,6 @@ has_xml_attr 'innerNetwork' => (is => 'rw', xml_name => 'innerNetwork', xml_name
 has_xml_attr 'containerNetwork' => (is => 'rw', xml_name => 'containerNetwork', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

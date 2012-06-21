@@ -9,9 +9,6 @@ extends 'VCD::Schema::VCloud_v1_5::EntityType';
 has_xml 'Entity' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::ReferenceType]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Property' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::VCloud_v1_5::PropertyType]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::PropertyType;
-use VCD::Schema::VCloud_v1_5::ReferenceType;
-
 
 __PACKAGE__->meta->make_immutable;
 

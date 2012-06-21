@@ -12,10 +12,6 @@ has_xml 'VAppScopedLocalId' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => 
 has_xml 'InstantiationParams' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::InstantiationParamsType]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'NetworkAssignment' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::VCloud_v1_5::NetworkAssignmentType]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::InstantiationParamsType;
-use VCD::Schema::VCloud_v1_5::NetworkAssignmentType;
-use VCD::Schema::VCloud_v1_5::ReferenceType;
-
 
 __PACKAGE__->meta->make_immutable;
 

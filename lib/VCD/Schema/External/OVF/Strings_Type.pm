@@ -10,8 +10,6 @@ has_xml_attr 'lang' => (is => 'rw', xml_name => '{http://www.w3.org/XML/1998/nam
 has_xml_attr 'fileRef' => (is => 'rw', xml_is_optional => '1', xml_name => 'fileRef', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml 'Msg' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::External::OVF::Strings_Type_Msg]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 
-use VCD::Schema::External::OVF::Strings_Type_Msg;
-
 
 __PACKAGE__->meta->make_immutable;
 

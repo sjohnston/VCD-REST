@@ -10,8 +10,6 @@ has_xml 'TimeoutAction' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1',
 has_xml 'BlockingTaskOperations' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::TaskOperationListType]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 has_xml 'TimeoutInMilliseconds' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
-use VCD::Schema::VCloud_v1_5::TaskOperationListType;
-
 
 __PACKAGE__->meta->make_immutable;
 

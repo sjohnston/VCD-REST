@@ -13,13 +13,6 @@ has_xml 'Catalogs' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::Catal
 has_xml 'Vdcs' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::VdcsType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Networks' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::NetworksType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::VdcsType;
-use VCD::Schema::VCloud_v1_5::GroupsListType;
-use VCD::Schema::VCloud_v1_5::CatalogsListType;
-use VCD::Schema::VCloud_v1_5::UsersListType;
-use VCD::Schema::VCloud_v1_5::OrgSettingsType;
-use VCD::Schema::VCloud_v1_5::NetworksType;
-
 
 __PACKAGE__->meta->make_immutable;
 

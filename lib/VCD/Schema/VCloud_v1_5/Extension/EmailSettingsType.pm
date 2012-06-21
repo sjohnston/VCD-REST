@@ -12,8 +12,6 @@ has_xml 'AlertEmailToAllAdmins' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum
 has_xml 'AlertEmailTo' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 has_xml 'SmtpSettings' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::Extension::SmtpSettingsType]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
-use VCD::Schema::VCloud_v1_5::Extension::SmtpSettingsType;
-
 
 __PACKAGE__->meta->make_immutable;
 

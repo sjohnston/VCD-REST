@@ -21,7 +21,6 @@ has_xml_attr 'providerVdc' => (is => 'ro', xml_name => 'providerVdc', xml_namesp
 has_xml_attr 'datastore' => (is => 'ro', xml_name => 'datastore', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

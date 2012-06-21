@@ -16,7 +16,6 @@ has_xml_attr 'storedVMQuota' => (is => 'ro', xml_name => 'storedVMQuota', xml_na
 has_xml_attr 'isLdapUser' => (is => 'ro', xml_name => 'isLdapUser', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

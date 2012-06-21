@@ -13,13 +13,6 @@ has_xml 'OrgLdapSettings' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5
 has_xml 'OrgEmailSettings' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::OrgEmailSettingsType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'OrgPasswordPolicySettings' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::OrgPasswordPolicySettingsType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::OrgVAppTemplateLeaseSettingsType;
-use VCD::Schema::VCloud_v1_5::OrgGeneralSettingsType;
-use VCD::Schema::VCloud_v1_5::OrgPasswordPolicySettingsType;
-use VCD::Schema::VCloud_v1_5::OrgEmailSettingsType;
-use VCD::Schema::VCloud_v1_5::OrgLdapSettingsType;
-use VCD::Schema::VCloud_v1_5::OrgLeaseSettingsType;
-
 
 __PACKAGE__->meta->make_immutable;
 

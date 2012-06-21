@@ -11,9 +11,6 @@ has_xml_attr 'powerOn' => (is => 'rw', xml_is_optional => '1', xml_name => 'powe
 has_xml 'VAppParent' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::ReferenceType]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'InstantiationParams' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::InstantiationParamsType]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::InstantiationParamsType;
-use VCD::Schema::VCloud_v1_5::ReferenceType;
-
 
 __PACKAGE__->meta->make_immutable;
 

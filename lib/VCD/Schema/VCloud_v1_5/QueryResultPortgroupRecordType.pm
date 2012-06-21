@@ -17,7 +17,6 @@ has_xml_attr 'networkName' => (is => 'ro', xml_name => 'networkName', xml_namesp
 has_xml_attr 'scopeType' => (is => 'ro', xml_name => 'scopeType', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

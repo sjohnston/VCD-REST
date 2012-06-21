@@ -10,7 +10,6 @@ has_xml 'Key' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minim
 has_xml 'Value' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 

@@ -12,11 +12,6 @@ has_xml 'OneToOneVmRule' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5:
 has_xml 'PortForwardingRule' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::NatPortForwardingRuleType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'VmRule' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::NatVmRuleType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::NatOneToOneVmRuleType;
-use VCD::Schema::VCloud_v1_5::NatPortForwardingRuleType;
-use VCD::Schema::VCloud_v1_5::NatOneToOneBasicRuleType;
-use VCD::Schema::VCloud_v1_5::NatVmRuleType;
-
 
 __PACKAGE__->meta->make_immutable;
 

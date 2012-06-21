@@ -8,8 +8,6 @@ extends 'VCD::Schema::VCloud_v1_5::VCloudExtensibleType';
 
 has_xml 'AccessSetting' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::VCloud_v1_5::AccessSettingType]', xml_maximum => 'unbounded', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::AccessSettingType;
-
 
 __PACKAGE__->meta->make_immutable;
 

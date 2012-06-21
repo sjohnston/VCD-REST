@@ -8,7 +8,6 @@ extends 'VCD::Schema::External::OVF::cimString';
 
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 

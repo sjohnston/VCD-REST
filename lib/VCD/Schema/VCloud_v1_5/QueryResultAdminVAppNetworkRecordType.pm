@@ -19,7 +19,6 @@ has_xml_attr 'vappName' => (is => 'ro', xml_name => 'vappName', xml_namespace =>
 has_xml_attr 'isBusy' => (is => 'ro', xml_name => 'isBusy', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

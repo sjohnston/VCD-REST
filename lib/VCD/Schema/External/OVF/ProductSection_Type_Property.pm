@@ -16,9 +16,6 @@ has_xml 'Label' => (is => 'rw', isa => 'Maybe[VCD::Schema::External::OVF::Msg_Ty
 has_xml 'Description' => (is => 'rw', isa => 'Maybe[VCD::Schema::External::OVF::Msg_Type]', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml 'Value' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::External::OVF::PropertyConfigurationValue_Type]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 
-use VCD::Schema::External::OVF::Msg_Type;
-use VCD::Schema::External::OVF::PropertyConfigurationValue_Type;
-
 
 __PACKAGE__->meta->make_immutable;
 

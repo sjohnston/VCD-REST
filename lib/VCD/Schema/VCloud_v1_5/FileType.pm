@@ -11,7 +11,6 @@ has_xml_attr 'bytesTransferred' => (is => 'ro', xml_name => 'bytesTransferred', 
 has_xml_attr 'checksum' => (is => 'ro', xml_name => 'checksum', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

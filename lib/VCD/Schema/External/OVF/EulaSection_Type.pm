@@ -8,8 +8,6 @@ extends 'VCD::Schema::External::OVF::Section_Type';
 
 has_xml 'License' => (is => 'rw', isa => 'Maybe[VCD::Schema::External::OVF::Msg_Type]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 
-use VCD::Schema::External::OVF::Msg_Type;
-
 
 __PACKAGE__->meta->make_immutable;
 

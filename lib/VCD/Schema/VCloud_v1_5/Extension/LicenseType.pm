@@ -13,8 +13,6 @@ has_xml 'ValidSerial' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', x
 has_xml 'Expired' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 has_xml 'LicenseMetricsInfo' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::Extension::LicenseMetricsInfoType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
-use VCD::Schema::VCloud_v1_5::Extension::LicenseMetricsInfoType;
-
 
 __PACKAGE__->meta->make_immutable;
 

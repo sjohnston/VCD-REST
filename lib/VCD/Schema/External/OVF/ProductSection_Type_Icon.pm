@@ -12,7 +12,6 @@ has_xml_attr 'mimeType' => (is => 'rw', xml_is_optional => '1', xml_name => 'mim
 has_xml_attr 'fileRef' => (is => 'rw', xml_name => 'fileRef', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 

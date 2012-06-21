@@ -10,9 +10,6 @@ has_xml 'Owner' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::OwnerTyp
 has_xml 'CatalogItems' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::CatalogItemsType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'IsPublished' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::OwnerType;
-use VCD::Schema::VCloud_v1_5::CatalogItemsType;
-
 
 __PACKAGE__->meta->make_immutable;
 

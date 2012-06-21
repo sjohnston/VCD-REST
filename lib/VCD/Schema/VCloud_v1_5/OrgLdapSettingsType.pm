@@ -10,8 +10,6 @@ has_xml 'OrgLdapMode' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', x
 has_xml 'CustomUsersOu' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'CustomOrgLdapSettings' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::CustomOrgLdapSettingsType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::CustomOrgLdapSettingsType;
-
 
 __PACKAGE__->meta->make_immutable;
 

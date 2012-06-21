@@ -10,7 +10,6 @@ has_xml 'Used' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_mini
 has_xml 'Overhead' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

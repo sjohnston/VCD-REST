@@ -8,7 +8,6 @@ extends 'VCD::Schema::VCloud_v1_5::InstantiateVAppParamsType';
 
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

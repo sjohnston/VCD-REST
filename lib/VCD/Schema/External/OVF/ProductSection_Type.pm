@@ -19,11 +19,6 @@ has_xml 'Icon' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::External::OVF::Prod
 has_xml 'Category' => (is => 'rw', isa => 'Maybe[VCD::Schema::External::OVF::Msg_Type]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml 'Property' => (is => 'rw', isa => 'Maybe[VCD::Schema::External::OVF::ProductSection_Type_Property]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 
-use VCD::Schema::External::OVF::Msg_Type;
-use VCD::Schema::External::OVF::ProductSection_Type_Icon;
-use VCD::Schema::External::OVF::ProductSection_Type_Property;
-use VCD::Schema::External::OVF::cimString;
-
 
 __PACKAGE__->meta->make_immutable;
 

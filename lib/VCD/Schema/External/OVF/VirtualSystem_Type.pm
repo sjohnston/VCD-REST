@@ -8,7 +8,6 @@ extends 'VCD::Schema::External::OVF::Content_Type';
 
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 DESCRIPTION

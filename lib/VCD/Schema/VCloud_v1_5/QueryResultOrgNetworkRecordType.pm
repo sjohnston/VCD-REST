@@ -20,7 +20,6 @@ has_xml_attr 'dnsSuffix' => (is => 'ro', xml_name => 'dnsSuffix', xml_namespace 
 has_xml_attr 'isBusy' => (is => 'ro', xml_name => 'isBusy', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

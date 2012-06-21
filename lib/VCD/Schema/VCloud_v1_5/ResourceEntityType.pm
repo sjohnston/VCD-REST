@@ -9,8 +9,6 @@ extends 'VCD::Schema::VCloud_v1_5::EntityType';
 has_xml_attr 'status' => (is => 'ro', xml_is_optional => '1', xml_name => 'status', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Files' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::FilesListType]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::FilesListType;
-
 
 __PACKAGE__->meta->make_immutable;
 

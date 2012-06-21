@@ -21,9 +21,6 @@ has_xml 'ConnectorType' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1',
 has_xml 'UserAttributes' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::OrgLdapUserAttributesType]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'GroupAttributes' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::OrgLdapGroupAttributesType]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::OrgLdapGroupAttributesType;
-use VCD::Schema::VCloud_v1_5::OrgLdapUserAttributesType;
-
 
 __PACKAGE__->meta->make_immutable;
 

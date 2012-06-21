@@ -10,7 +10,6 @@ has_xml 'FullName' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_
 has_xml 'IsEnabled' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

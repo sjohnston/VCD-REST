@@ -26,7 +26,6 @@ has_xml_attr 'isDeployed' => (is => 'ro', xml_name => 'isDeployed', xml_namespac
 has_xml_attr 'status' => (is => 'ro', xml_name => 'status', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

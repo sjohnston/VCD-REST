@@ -8,8 +8,6 @@ extends 'VCD::Schema::Type';
 
 has_xml 'File' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::External::OVF::File_Type]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 
-use VCD::Schema::External::OVF::File_Type;
-
 
 __PACKAGE__->meta->make_immutable;
 

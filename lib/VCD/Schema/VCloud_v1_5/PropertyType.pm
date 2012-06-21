@@ -9,7 +9,6 @@ extends 'VCD::Schema::Type';
 has_xml_attr 'key' => (is => 'rw', xml_name => 'key', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

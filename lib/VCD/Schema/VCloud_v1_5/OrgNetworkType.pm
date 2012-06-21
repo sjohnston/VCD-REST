@@ -9,9 +9,6 @@ extends 'VCD::Schema::VCloud_v1_5::NetworkType';
 has_xml 'NetworkPool' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::ReferenceType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'AllowedExternalIpAddresses' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::IpAddressesType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::IpAddressesType;
-use VCD::Schema::VCloud_v1_5::ReferenceType;
-
 
 __PACKAGE__->meta->make_immutable;
 

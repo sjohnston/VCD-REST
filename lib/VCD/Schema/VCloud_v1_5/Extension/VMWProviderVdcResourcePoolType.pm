@@ -11,9 +11,6 @@ has_xml 'ResourcePoolVimObjectRef' => (is => 'rw', isa => 'Maybe[VCD::Schema::VC
 has_xml 'ResourcePoolRef' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::ReferenceType]', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 has_xml 'Enabled' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
-use VCD::Schema::VCloud_v1_5::Extension::VimObjectRefType;
-use VCD::Schema::VCloud_v1_5::ReferenceType;
-
 
 __PACKAGE__->meta->make_immutable;
 

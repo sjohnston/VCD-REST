@@ -19,7 +19,6 @@ has_xml_attr 'deployedVMQuotaRank' => (is => 'ro', xml_name => 'deployedVMQuotaR
 has_xml_attr 'storedVMQuotaRank' => (is => 'ro', xml_name => 'storedVMQuotaRank', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

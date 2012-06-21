@@ -4,6 +4,7 @@ use Moose;
 use VCD::Schema;
 use VCD::Schema::TypeMap;
 
+use Class::Load qw(load_class);
 use List::Util qw(first);
 use Scalar::Util 'blessed';
 
@@ -152,7 +153,7 @@ sub post_link {
     die "Can't find link" unless ($link);
 
     my $class = VCD::Schema::TypeMap::get_schema_type(1.5, $type);
-    eval "use $class;";
+    load_class($class);
     my $obj = $class->new( %$data, xml_name => $xml_name );
 
     my $xml = $self->vcd_rest->post($link->href, $type, $obj->to_xml_string);

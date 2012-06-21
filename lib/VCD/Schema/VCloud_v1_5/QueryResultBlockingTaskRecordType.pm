@@ -19,7 +19,6 @@ has_xml_attr 'task' => (is => 'ro', xml_name => 'task', xml_namespace => 'http:/
 has_xml_attr 'jobStatus' => (is => 'ro', xml_name => 'jobStatus', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

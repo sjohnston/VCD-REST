@@ -11,8 +11,6 @@ has_xml 'Info' => (is => 'rw', isa => 'Maybe[VCD::Schema::External::OVF::Msg_Typ
 has_xml 'Name' => (is => 'rw', isa => 'Maybe[VCD::Schema::External::OVF::Msg_Type]', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml 'Section' => (is => 'rw', isa => 'ArrayRef[Str]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 
-use VCD::Schema::External::OVF::Msg_Type;
-
 
 __PACKAGE__->meta->make_immutable;
 

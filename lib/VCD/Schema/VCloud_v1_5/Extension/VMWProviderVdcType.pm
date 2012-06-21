@@ -12,10 +12,6 @@ has_xml 'VimServer' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::VCloud_v1_5::R
 has_xml 'HostReferences' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::Extension::VMWHostReferencesType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 has_xml 'HighestSupportedHardwareVersion' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
-use VCD::Schema::VCloud_v1_5::Extension::VimObjectRefsType;
-use VCD::Schema::VCloud_v1_5::Extension::VMWHostReferencesType;
-use VCD::Schema::VCloud_v1_5::ReferenceType;
-
 
 __PACKAGE__->meta->make_immutable;
 

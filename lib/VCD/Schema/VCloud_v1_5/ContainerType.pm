@@ -12,7 +12,6 @@ has_xml_attr 'pageSize' => (is => 'ro', xml_is_optional => '1', xml_name => 'pag
 has_xml_attr 'total' => (is => 'ro', xml_is_optional => '1', xml_name => 'total', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 DESCRIPTION

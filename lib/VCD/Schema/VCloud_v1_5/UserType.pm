@@ -25,9 +25,6 @@ has_xml 'Role' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::Reference
 has_xml 'Password' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'GroupReferences' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::GroupsListType]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::GroupsListType;
-use VCD::Schema::VCloud_v1_5::ReferenceType;
-
 
 __PACKAGE__->meta->make_immutable;
 

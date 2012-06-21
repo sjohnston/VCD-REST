@@ -11,8 +11,6 @@ has_xml 'Description' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', x
 has_xml 'Configuration' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::NetworkConfigurationType]', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'IsDeployed' => (is => 'ro', isa => 'Maybe[Str]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::NetworkConfigurationType;
-
 
 __PACKAGE__->meta->make_immutable;
 

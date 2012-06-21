@@ -20,7 +20,6 @@ has_xml_attr 'vcName' => (is => 'ro', xml_name => 'vcName', xml_namespace => 'ht
 has_xml_attr 'numberOfVMs' => (is => 'ro', xml_name => 'numberOfVMs', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

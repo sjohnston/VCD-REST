@@ -8,8 +8,6 @@ extends 'VCD::Schema::VCloud_v1_5::Extension::ServerType';
 
 has_xml 'AssociatedVimServer' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::ReferenceType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
-use VCD::Schema::VCloud_v1_5::ReferenceType;
-
 
 __PACKAGE__->meta->make_immutable;
 

@@ -20,7 +20,6 @@ has_xml_attr 'objectName' => (is => 'ro', xml_name => 'objectName', xml_namespac
 has_xml_attr 'cellName' => (is => 'ro', xml_name => 'cellName', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

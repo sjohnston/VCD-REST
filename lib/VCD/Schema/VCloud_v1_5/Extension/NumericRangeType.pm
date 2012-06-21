@@ -10,7 +10,6 @@ has_xml 'Start' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://ww
 has_xml 'End' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

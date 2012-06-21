@@ -9,8 +9,6 @@ extends 'VCD::Schema::VCloud_v1_5::VCloudExtensibleType';
 has_xml 'VApp' => (is => 'ro', isa => 'ArrayRef[Str]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Vm' => (is => 'ro', isa => 'ArrayRef[VCD::Schema::VCloud_v1_5::VmType]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::VmType;
-
 
 __PACKAGE__->meta->make_immutable;
 

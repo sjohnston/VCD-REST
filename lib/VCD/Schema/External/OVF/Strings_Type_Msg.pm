@@ -9,7 +9,6 @@ extends 'VCD::Schema::Type';
 has_xml_attr 'msgid' => (is => 'rw', xml_name => 'msgid', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 DESCRIPTION

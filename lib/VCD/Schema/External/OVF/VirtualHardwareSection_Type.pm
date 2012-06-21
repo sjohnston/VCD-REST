@@ -11,9 +11,6 @@ has_xml_attr 'transport' => (is => 'rw', xml_is_optional => '1', xml_name => 'tr
 has_xml 'System' => (is => 'rw', isa => 'Maybe[VCD::Schema::External::OVF::VSSD_Type]', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml 'Item' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::External::OVF::RASD_Type]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 
-use VCD::Schema::External::OVF::VSSD_Type;
-use VCD::Schema::External::OVF::RASD_Type;
-
 
 __PACKAGE__->meta->make_immutable;
 

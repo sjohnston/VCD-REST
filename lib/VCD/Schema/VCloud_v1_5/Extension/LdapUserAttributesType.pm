@@ -18,7 +18,6 @@ has_xml 'GroupMembershipIdentifier' => (is => 'rw', isa => 'Maybe[Str]', xml_max
 has_xml 'GroupBackLinkIdentifier' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

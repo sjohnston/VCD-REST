@@ -12,7 +12,6 @@ has_xml_attr 'roleName' => (is => 'ro', xml_name => 'roleName', xml_namespace =>
 has_xml_attr 'isReadOnly' => (is => 'ro', xml_name => 'isReadOnly', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

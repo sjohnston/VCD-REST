@@ -29,7 +29,6 @@ has_xml_attr 'status' => (is => 'ro', xml_name => 'status', xml_namespace => 'ht
 has_xml_attr 'numberOfDatastores' => (is => 'ro', xml_name => 'numberOfDatastores', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

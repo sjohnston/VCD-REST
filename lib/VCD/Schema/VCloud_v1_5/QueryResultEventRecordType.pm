@@ -16,7 +16,6 @@ has_xml_attr 'entityType' => (is => 'ro', xml_name => 'entityType', xml_namespac
 has_xml_attr 'entityName' => (is => 'ro', xml_name => 'entityName', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

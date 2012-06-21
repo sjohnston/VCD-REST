@@ -11,7 +11,6 @@ has_xml 'InvalidLoginsBeforeLockout' => (is => 'rw', isa => 'Maybe[Str]', xml_ma
 has_xml 'AccountLockoutIntervalMinutes' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 DESCRIPTION

@@ -9,7 +9,6 @@ extends 'VCD::Schema::External::OVF::cimBoolean';
 has_xml_attr 'qualifier' => (is => 'rw', xml_name => 'qualifier', xml_namespace => 'http://schemas.dmtf.org/wbem/wscim/1/common');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 

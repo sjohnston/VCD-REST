@@ -8,7 +8,6 @@ extends 'VCD::Schema::Type';
 
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

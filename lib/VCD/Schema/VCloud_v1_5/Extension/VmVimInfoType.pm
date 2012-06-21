@@ -11,8 +11,6 @@ has_xml 'DatastoreVimObjectRef' => (is => 'ro', isa => 'Maybe[VCD::Schema::VClou
 has_xml 'HostVimObjectRef' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::Extension::VimObjectRefType]', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 has_xml 'VirtualDisksMaxChainLength' => (is => 'ro', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
-use VCD::Schema::VCloud_v1_5::Extension::VimObjectRefType;
-
 
 __PACKAGE__->meta->make_immutable;
 

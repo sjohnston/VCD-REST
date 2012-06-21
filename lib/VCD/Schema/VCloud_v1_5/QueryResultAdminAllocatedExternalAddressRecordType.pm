@@ -12,7 +12,6 @@ has_xml_attr 'linkedNetwork' => (is => 'ro', xml_name => 'linkedNetwork', xml_na
 has_xml_attr 'org' => (is => 'ro', xml_name => 'org', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

@@ -15,13 +15,6 @@ has_xml 'Vdcs' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::VdcsType]
 has_xml 'IsEnabled' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'NetworkPoolReferences' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::NetworkPoolReferencesType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::CapabilitiesType;
-use VCD::Schema::VCloud_v1_5::AvailableNetworksType;
-use VCD::Schema::VCloud_v1_5::RootComputeCapacityType;
-use VCD::Schema::VCloud_v1_5::VdcsType;
-use VCD::Schema::VCloud_v1_5::NetworkPoolReferencesType;
-use VCD::Schema::VCloud_v1_5::ProviderVdcCapacityType;
-
 
 __PACKAGE__->meta->make_immutable;
 

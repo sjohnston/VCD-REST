@@ -23,7 +23,6 @@ has_xml_attr 'primaryVMCatalog' => (is => 'ro', xml_name => 'primaryVMCatalog', 
 has_xml_attr 'org' => (is => 'ro', xml_name => 'org', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

@@ -16,16 +16,6 @@ has_xml 'BrandingSettings' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_
 has_xml 'BlockingTaskSettings' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::Extension::BlockingTaskSettingsType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 has_xml 'PasswordPolicySettings' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::Extension::SystemPasswordPolicySettingsType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
-use VCD::Schema::VCloud_v1_5::Extension::LdapSettingsType;
-use VCD::Schema::VCloud_v1_5::Extension::SystemPasswordPolicySettingsType;
-use VCD::Schema::VCloud_v1_5::Extension::AmqpSettingsType;
-use VCD::Schema::VCloud_v1_5::Extension::BrandingSettingsType;
-use VCD::Schema::VCloud_v1_5::Extension::NotificationsSettingsType;
-use VCD::Schema::VCloud_v1_5::Extension::GeneralSettingsType;
-use VCD::Schema::VCloud_v1_5::Extension::LicenseType;
-use VCD::Schema::VCloud_v1_5::Extension::BlockingTaskSettingsType;
-use VCD::Schema::VCloud_v1_5::Extension::EmailSettingsType;
-
 
 __PACKAGE__->meta->make_immutable;
 

@@ -11,7 +11,6 @@ has_xml 'VAppScopedLocalId' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => 
 has_xml 'Environment' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

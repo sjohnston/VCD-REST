@@ -15,7 +15,6 @@ has_xml 'AvailablePhysicalMemory' => (is => 'ro', isa => 'Maybe[Str]', xml_maxim
 has_xml 'LastUpdate' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

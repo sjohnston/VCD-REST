@@ -14,7 +14,6 @@ has_xml_attr 'buildDate' => (is => 'ro', xml_name => 'buildDate', xml_namespace 
 has_xml_attr 'version' => (is => 'ro', xml_name => 'version', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

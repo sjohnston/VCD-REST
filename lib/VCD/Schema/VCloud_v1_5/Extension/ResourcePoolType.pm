@@ -10,8 +10,6 @@ has_xml 'MoRef' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_min
 has_xml 'VimObjectType' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 has_xml 'DataStoreRefs' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::Extension::VimObjectRefsType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
-use VCD::Schema::VCloud_v1_5::Extension::VimObjectRefsType;
-
 
 __PACKAGE__->meta->make_immutable;
 

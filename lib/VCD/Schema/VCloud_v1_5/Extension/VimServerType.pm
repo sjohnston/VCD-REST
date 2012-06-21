@@ -13,7 +13,6 @@ has_xml 'ShieldManagerUserName' => (is => 'ro', isa => 'Maybe[Str]', xml_minimum
 has_xml 'Uuid' => (is => 'ro', isa => 'Maybe[Str]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

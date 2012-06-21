@@ -19,7 +19,6 @@ has_xml_attr 'numberOfVApps' => (is => 'ro', xml_name => 'numberOfVApps', xml_na
 has_xml_attr 'numberOfGroups' => (is => 'ro', xml_name => 'numberOfGroups', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

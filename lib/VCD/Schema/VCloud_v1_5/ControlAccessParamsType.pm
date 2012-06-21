@@ -10,8 +10,6 @@ has_xml 'IsSharedToEveryone' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum =>
 has_xml 'EveryoneAccessLevel' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'AccessSettings' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::AccessSettingsType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::AccessSettingsType;
-
 
 __PACKAGE__->meta->make_immutable;
 

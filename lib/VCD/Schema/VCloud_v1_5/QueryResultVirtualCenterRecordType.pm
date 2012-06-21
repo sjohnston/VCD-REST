@@ -17,7 +17,6 @@ has_xml_attr 'isBusy' => (is => 'ro', xml_name => 'isBusy', xml_namespace => 'ht
 has_xml_attr 'uuid' => (is => 'ro', xml_name => 'uuid', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

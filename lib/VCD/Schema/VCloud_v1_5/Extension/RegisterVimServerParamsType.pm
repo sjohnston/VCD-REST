@@ -9,9 +9,6 @@ extends 'VCD::Schema::Type';
 has_xml 'VimServer' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::Extension::VimServerType]', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 has_xml 'ShieldManager' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::Extension::ShieldManagerType]', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
-use VCD::Schema::VCloud_v1_5::Extension::ShieldManagerType;
-use VCD::Schema::VCloud_v1_5::Extension::VimServerType;
-
 
 __PACKAGE__->meta->make_immutable;
 

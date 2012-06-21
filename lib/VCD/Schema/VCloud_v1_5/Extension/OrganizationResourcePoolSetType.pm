@@ -8,8 +8,6 @@ extends 'VCD::Schema::VCloud_v1_5::ResourceType';
 
 has_xml 'ResourcePoolVimObjectRef' => (is => 'ro', isa => 'ArrayRef[VCD::Schema::VCloud_v1_5::Extension::VimObjectRefType]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
-use VCD::Schema::VCloud_v1_5::Extension::VimObjectRefType;
-
 
 __PACKAGE__->meta->make_immutable;
 

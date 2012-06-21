@@ -12,9 +12,6 @@ has_xml 'Section' => (is => 'rw', isa => 'ArrayRef[Str]', xml_maximum => 'unboun
 has_xml 'Content' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml 'Strings' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::External::OVF::Strings_Type]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 
-use VCD::Schema::External::OVF::Strings_Type;
-use VCD::Schema::External::OVF::References_Type;
-
 
 __PACKAGE__->meta->make_immutable;
 

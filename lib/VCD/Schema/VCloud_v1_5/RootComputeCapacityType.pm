@@ -11,8 +11,6 @@ has_xml 'Memory' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::Provide
 has_xml 'IsElastic' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'IsHA' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::ProviderVdcCapacityType;
-
 
 __PACKAGE__->meta->make_immutable;
 

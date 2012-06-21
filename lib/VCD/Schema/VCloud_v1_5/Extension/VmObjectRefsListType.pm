@@ -10,8 +10,6 @@ has_xml_attr 'numberOfPages' => (is => 'ro', xml_is_optional => '1', xml_name =>
 has_xml_attr 'page' => (is => 'ro', xml_is_optional => '1', xml_name => 'page', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 has_xml 'VmObjectRef' => (is => 'ro', isa => 'ArrayRef[VCD::Schema::VCloud_v1_5::Extension::VmObjectRefType]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
-use VCD::Schema::VCloud_v1_5::Extension::VmObjectRefType;
-
 
 __PACKAGE__->meta->make_immutable;
 

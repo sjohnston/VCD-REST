@@ -12,9 +12,6 @@ has_xml 'PrimaryNetworkConnectionIndex' => (is => 'rw', isa => 'Maybe[Str]', xml
 has_xml 'NetworkConnection' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::VCloud_v1_5::NetworkConnectionType]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Link' => (is => 'ro', isa => 'ArrayRef[VCD::Schema::VCloud_v1_5::LinkType]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::LinkType;
-use VCD::Schema::VCloud_v1_5::NetworkConnectionType;
-
 
 __PACKAGE__->meta->make_immutable;
 

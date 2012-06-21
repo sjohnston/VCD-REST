@@ -11,8 +11,6 @@ has_xml_attr 'reportDate' => (is => 'ro', xml_name => 'reportDate', xml_namespac
 has_xml_attr 'signature' => (is => 'ro', xml_is_optional => '1', xml_name => 'signature', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 has_xml 'Sample' => (is => 'ro', isa => 'ArrayRef[VCD::Schema::VCloud_v1_5::Extension::LicensingReportSampleType]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
-use VCD::Schema::VCloud_v1_5::Extension::LicensingReportSampleType;
-
 
 __PACKAGE__->meta->make_immutable;
 

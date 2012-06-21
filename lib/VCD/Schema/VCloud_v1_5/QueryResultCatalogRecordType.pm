@@ -17,7 +17,6 @@ has_xml_attr 'numberOfMedia' => (is => 'ro', xml_name => 'numberOfMedia', xml_na
 has_xml_attr 'owner' => (is => 'ro', xml_name => 'owner', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

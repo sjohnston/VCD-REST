@@ -14,12 +14,6 @@ has_xml 'Features' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::Netwo
 has_xml 'SyslogServerSettings' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::SyslogServerSettingsType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'RouterInfo' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::RouterInfoType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::SyslogServerSettingsType;
-use VCD::Schema::VCloud_v1_5::IpScopeType;
-use VCD::Schema::VCloud_v1_5::RouterInfoType;
-use VCD::Schema::VCloud_v1_5::NetworkFeaturesType;
-use VCD::Schema::VCloud_v1_5::ReferenceType;
-
 
 __PACKAGE__->meta->make_immutable;
 

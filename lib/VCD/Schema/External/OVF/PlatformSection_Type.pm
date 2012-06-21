@@ -12,8 +12,6 @@ has_xml 'Vendor' => (is => 'rw', isa => 'Maybe[VCD::Schema::External::OVF::cimSt
 has_xml 'Locale' => (is => 'rw', isa => 'Maybe[VCD::Schema::External::OVF::cimString]', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
 has_xml 'Timezone' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
 
-use VCD::Schema::External::OVF::cimString;
-
 
 __PACKAGE__->meta->make_immutable;
 

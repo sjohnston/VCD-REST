@@ -9,7 +9,6 @@ extends 'VCD::Schema::VCloud_v1_5::EntityReferenceType';
 has_xml_attr 'rel' => (is => 'rw', xml_name => 'rel', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

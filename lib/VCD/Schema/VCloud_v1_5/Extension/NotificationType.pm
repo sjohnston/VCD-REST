@@ -13,9 +13,6 @@ has_xml 'EntityLink' => (is => 'ro', isa => 'ArrayRef[VCD::Schema::VCloud_v1_5::
 has_xml 'Timestamp' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 has_xml 'OperationSuccess' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
-use VCD::Schema::VCloud_v1_5::EntityLinkType;
-use VCD::Schema::VCloud_v1_5::LinkType;
-
 
 __PACKAGE__->meta->make_immutable;
 

@@ -13,7 +13,6 @@ has_xml 'Time' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://sch
 has_xml 'Datetime' => (is => 'rw', isa => 'Maybe[Str]', xml_namespace => 'http://schemas.dmtf.org/wbem/wscim/1/common');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 

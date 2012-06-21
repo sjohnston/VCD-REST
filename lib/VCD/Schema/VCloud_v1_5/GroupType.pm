@@ -10,9 +10,6 @@ has_xml 'NameInSource' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', 
 has_xml 'UsersList' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::UsersListType]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Role' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::ReferenceType]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::UsersListType;
-use VCD::Schema::VCloud_v1_5::ReferenceType;
-
 
 __PACKAGE__->meta->make_immutable;
 

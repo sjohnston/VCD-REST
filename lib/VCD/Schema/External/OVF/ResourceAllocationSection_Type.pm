@@ -8,8 +8,6 @@ extends 'VCD::Schema::External::OVF::Section_Type';
 
 has_xml 'Item' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::External::OVF::RASD_Type]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 
-use VCD::Schema::External::OVF::RASD_Type;
-
 
 __PACKAGE__->meta->make_immutable;
 

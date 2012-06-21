@@ -10,8 +10,6 @@ has_xml 'DefaultLeaseTime' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '
 has_xml 'MaxLeaseTime' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'IpRange' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::IpRangeType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::IpRangeType;
-
 
 __PACKAGE__->meta->make_immutable;
 

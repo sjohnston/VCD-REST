@@ -8,7 +8,6 @@ extends 'VCD::Schema::External::OVF::CIM_VirtualSystemSettingData_Type';
 
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 DESCRIPTION

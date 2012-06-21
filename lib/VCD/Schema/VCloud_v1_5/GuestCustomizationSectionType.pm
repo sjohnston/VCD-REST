@@ -24,8 +24,6 @@ has_xml 'CustomizationScript' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum =
 has_xml 'ComputerName' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Link' => (is => 'ro', isa => 'ArrayRef[VCD::Schema::VCloud_v1_5::LinkType]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::LinkType;
-
 
 __PACKAGE__->meta->make_immutable;
 

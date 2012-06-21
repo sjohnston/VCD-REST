@@ -22,7 +22,6 @@ has_xml_attr 'catalogItem' => (is => 'ro', xml_name => 'catalogItem', xml_namesp
 has_xml_attr 'status' => (is => 'ro', xml_name => 'status', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

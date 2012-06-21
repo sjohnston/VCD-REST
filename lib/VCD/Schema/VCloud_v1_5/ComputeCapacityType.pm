@@ -9,8 +9,6 @@ extends 'VCD::Schema::VCloud_v1_5::VCloudExtensibleType';
 has_xml 'Cpu' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::CapacityWithUsageType]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Memory' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::CapacityWithUsageType]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::CapacityWithUsageType;
-
 
 __PACKAGE__->meta->make_immutable;
 

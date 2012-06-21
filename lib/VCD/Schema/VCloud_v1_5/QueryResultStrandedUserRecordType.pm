@@ -13,7 +13,6 @@ has_xml_attr 'numberOfDeployedVMs' => (is => 'ro', xml_name => 'numberOfDeployed
 has_xml_attr 'numberOfStoredVMs' => (is => 'ro', xml_name => 'numberOfStoredVMs', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

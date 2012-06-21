@@ -9,7 +9,6 @@ extends 'VCD::Schema::VCloud_v1_5::TaskRequestBaseType';
 has_xml_attr 'status' => (is => 'ro', xml_name => 'status', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API

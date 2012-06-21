@@ -12,12 +12,6 @@ has_xml 'RightReferences' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5
 has_xml 'RoleReferences' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::RoleReferencesType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Networks' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::NetworksType]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
-use VCD::Schema::VCloud_v1_5::ProviderVdcReferencesType;
-use VCD::Schema::VCloud_v1_5::OrganizationReferencesType;
-use VCD::Schema::VCloud_v1_5::RightReferencesType;
-use VCD::Schema::VCloud_v1_5::NetworksType;
-use VCD::Schema::VCloud_v1_5::RoleReferencesType;
-
 
 __PACKAGE__->meta->make_immutable;
 

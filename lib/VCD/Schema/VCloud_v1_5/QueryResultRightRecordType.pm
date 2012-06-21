@@ -10,7 +10,6 @@ has_xml_attr 'name' => (is => 'ro', xml_name => 'name', xml_namespace => 'http:/
 has_xml_attr 'category' => (is => 'ro', xml_name => 'category', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
-
 __PACKAGE__->meta->make_immutable;
 
 =head1 API
