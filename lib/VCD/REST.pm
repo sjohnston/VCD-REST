@@ -51,11 +51,19 @@ has host => (
     required => 1,
 );
 
+has debug => (is => 'rw', isa => 'Bool', default => 0);
+
 sub _build_ua {
+    my $self = shift;
     my $ua = LWP::UserAgent->new;
 
     $ua->default_header('Accept-Encoding' => scalar HTTP::Message::decodable());
     $ua->default_header('Accept' => 'application/*+xml;version=1.5');
+
+    if ($self->debug) {
+        $ua->add_handler("request_send",  sub { shift->dump; return });
+        $ua->add_handler("response_done", sub { shift->dump; return });
+    }
 
     return $ua;
 }
