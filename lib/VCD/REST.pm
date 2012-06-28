@@ -4,9 +4,10 @@ use Moose;
 
 use Data::Dumper;
 use XML::LibXML::Simple qw(XMLin);
-use VCD::Schema::VCloud_v1_5::SessionType;
 use HTTP::Request;
 use LWP::UserAgent;
+use Class::Load qw(load_class);
+use VCD::Schema::TypeMap;
 
 has ua => (
     is       => 'ro',
@@ -17,9 +18,7 @@ has ua => (
 
 has session => (
     is       => 'rw',
-    isa      => 'VCD::Schema::VCloud_v1_5::SessionType',
-    lazy     => 1,
-    builder  => '_build_session',
+    does     => 'VCD::Roles::SessionType',
 );
 
 has base_href => (
@@ -27,6 +26,12 @@ has base_href => (
     isa      => 'Str',
     lazy     => 1,
     builder  => '_build_href',
+);
+
+has api_version => (
+    is       => 'ro',
+    isa      => 'Str',
+    default  => '1.5',
 );
 
 has password => (
@@ -58,7 +63,7 @@ sub _build_ua {
     my $ua = LWP::UserAgent->new;
 
     $ua->default_header('Accept-Encoding' => scalar HTTP::Message::decodable());
-    $ua->default_header('Accept' => 'application/*+xml;version=1.5');
+    $ua->default_header('Accept' => 'application/*+xml;version=' . $self->api_version);
 
     if ($self->debug) {
         $ua->add_handler("request_send",  sub { shift->dump; return });
@@ -87,8 +92,8 @@ sub url {
     return $url;
 }
 
-sub _build_session {
-    my $self = shift;
+sub BUILD {
+    my ($self, $args) = @_;
 
     my $req;
     if ($self->auth) {
@@ -106,10 +111,8 @@ sub _build_session {
     }
     $self->auth( $res->header('x-vcloud-authorization') );
 
-    my $args = XMLin($res->decoded_content, NsExpand => 1, KeyAttr => [], KeepRoot => 1);
-
-    my ($name) = keys %$args;
-    return VCD::Schema::VCloud_v1_5::SessionType->new( xml_name => $name, xml_hash => $args->{$name}, vcd_rest => $self );
+    my $session = $self->map_object_xml($res->decoded_content);
+    $self->session($session);
 }
 
 sub request {
@@ -145,32 +148,69 @@ sub _do_http {
         die $res->status_line;
     }
 
-    return XMLin($res->decoded_content, NsExpand => 1, KeyAttr => [], KeepRoot => 1, ForceArray => 1)
-        if ($res->decoded_content);
+    return $res->decoded_content;
+}
+
+sub get_hash {
+    my ($self, $href) = @_;
+
+    my $xml = $self->_do_http(GET => $href);
+
+    return XMLin($xml, NsExpand => 1, KeyAttr => [], KeepRoot => 1, ForceArray => 1);
 }
 
 sub get {
     my ($self, $href) = @_;
 
-    return $self->_do_http(GET => $href);
+    my $xml = $self->_do_http(GET => $href);
+
+    return $self->map_object_xml($xml) if ($xml);
 }
 
 sub delete {
     my ($self, $href) = @_;
 
-    return $self->_do_http(DELETE => $href);
+    my $xml = $self->_do_http(DELETE => $href);
+
+    return $self->map_object_xml($xml) if ($xml);
 }
 
 sub post {
     my ($self, $href, $content_type, $data) = @_;
 
-    return $self->_do_http(POST => $href, $content_type, $data);
+    my $xml = $self->_do_http(POST => $href, $content_type, $data);
+
+    return $self->map_object_xml($xml) if ($xml);
 }
 
 sub put {
     my ($self, $href, $content_type, $data) = @_;
 
-    return $self->_do_http(PUT => $href, $content_type, $data);
+    my $xml = $self->_do_http(PUT => $href, $content_type, $data);
+
+    return $self->map_object_xml($xml) if ($xml);
+}
+
+sub map_object {
+    my ($self, $type, $name, $data) = @_;
+
+    my $class = VCD::Schema::TypeMap::get_schema_type($self->api_version, $type);
+    load_class($class);
+
+    return $class->new( %$data, xml_name => $name, vcd_rest => $self );
+}
+
+sub map_object_xml {
+    my ($self, $xml) = @_;
+
+    my $data = XMLin($xml, NsExpand => 1, KeyAttr => [], KeepRoot => 1, ForceArray => 1);
+    my ($name) = keys %$data;
+    my $xml_hash = $data->{$name}->[0];
+
+    my $class = VCD::Schema::TypeMap::get_schema_type($self->api_version, $xml_hash->{'type'});
+    load_class($class);
+
+    return $class->new( xml_name => $name, xml_hash => $xml_hash, vcd_rest => $self );
 }
 
 __PACKAGE__->meta->make_immutable;
@@ -190,5 +230,17 @@ VCD::REST - Object Oriented access to the VMware vCloud REST API
     my $vcd = VCD::REST->new(host => $host, user_name => $username, password => $password);
     my $org = $vcd->session->org_list->[0]->get;
     print $org->FullName;
+
+    my $org = $vcd->get($org_href);
+
+    $org->Description($new_description);
+    $org->put;
+
+    my $cat = $org->post_link('add', 'application/vnd.vmware.admin.catalog+xml',
+        AdminCatalog => {
+            name => $catalog_name,
+            Description => $catalog_description,
+        }
+    );
 
 =cut

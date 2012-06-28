@@ -21,6 +21,7 @@ sub has_xml {
 
     $opts{'lazy'} = 1;
     $opts{'builder'} = "_build_$name";
+    $opts{'predicate'} = "has_$name";
     $opts{'traits'} ||= ['VCD::Schema::Element'];
 
     my $attr = $meta->add_attribute($name, %opts);
@@ -52,6 +53,7 @@ sub _make_builder {
         my $self = shift;
         my $xml_hash = $self->xml_hash->{$xml_name};
         if (ref $xml_hash eq 'ARRAY') {
+            load_class($subtype);
             my @list = map { $subtype->new( xml_name => $xml_name, xml_hash => $_, vcd_rest => $self->vcd_rest ) } @$xml_hash;
             return \@list;
         }
@@ -61,6 +63,7 @@ sub _make_builder {
     return sub {
         my $self = shift;
         my $xml_hash = $self->xml_hash->{$xml_name}[0];
+        load_class($type);
         return $type->new( xml_name => $xml_name, xml_hash => $xml_hash, vcd_rest => $self->vcd_rest )
             if ($xml_hash);
     } if ($type && $type ne 'Str');

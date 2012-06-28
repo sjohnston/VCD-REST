@@ -2,7 +2,6 @@ package VCD::Schema::Type;
 
 use Moose;
 use VCD::Schema;
-use VCD::Schema::TypeMap;
 
 use Class::Load qw(load_class);
 use List::Util qw(first);
@@ -45,6 +44,7 @@ around BUILDARGS => sub {
             $type = $attr->type_constraint->type_parameter->name;
         }
 
+        load_class($type);
         $args->{$attr_name} = $type->new(%$arg, xml_name => $attr_name);
     }
 
@@ -54,8 +54,8 @@ around BUILDARGS => sub {
 sub _build_xml_hash {
     my $self = shift;
 
-    return { } unless $self->has_vcd_rest;
-    my $xml = $self->vcd_rest->get($self->href);
+    return { } unless $self->has_vcd_rest && $self->has_href;
+    my $xml = $self->vcd_rest->get_hash($self->href);
     my ($name) = keys %$xml;
     $self->xml_name($name);
     return $xml->{$name}->[0];
@@ -121,17 +121,6 @@ sub get_xml_attributes {
     return @attrs;
 }
 
-sub get {
-    my $self = shift;
-    my $xml = $self->vcd_rest->get($self->href);
-    my ($name) = keys %$xml;
-    $self->xml_name($name);
-
-    my $class = VCD::Schema::TypeMap::get_schema_type(1.5, $self->type);
-    eval "use $class;";
-    my $obj = $class->new( xml_name => $name, xml_hash => $xml->{$name}->[0] );
-}
-
 sub put {
     my $self = shift;
 
@@ -152,14 +141,9 @@ sub post_link {
 
     die "Can't find link" unless ($link);
 
-    my $class = VCD::Schema::TypeMap::get_schema_type(1.5, $type);
-    load_class($class);
-    my $obj = $class->new( %$data, xml_name => $xml_name );
+    my $obj = $self->vcd_rest->map_object($type, $xml_name, $data);
 
-    my $xml = $self->vcd_rest->post($link->href, $type, $obj->to_xml_string);
-    my ($name) = keys %$xml;
-
-    return $class->new( xml_name => $name, xml_hash => $xml->{$name}->[0], vcd_rest => $self->vcd_rest );
+    return $self->vcd_rest->post($link->href, $type, $obj->to_xml_string);
 }
 
 1;
