@@ -2,7 +2,6 @@ package VCD::REST;
 
 use Moose;
 
-use Data::Dumper;
 use XML::LibXML::Simple qw(XMLin);
 use HTTP::Request;
 use LWP::UserAgent;
