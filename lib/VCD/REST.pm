@@ -6,6 +6,7 @@ use XML::LibXML::Simple qw(XMLin);
 use HTTP::Request;
 use LWP::UserAgent;
 use Class::Load qw(load_class);
+use List::Util qw(first);
 use VCD::Schema::TypeMap;
 
 has ua => (
@@ -166,6 +167,41 @@ sub get {
     return $self->map_object_xml($xml) if ($xml);
 }
 
+sub get_entity {
+    my ($self, $urn, $type) = @_;
+
+    my $rel = 'entityResolver';
+    my $etype = 'application/vnd.vmware.vcloud.entity+xml';
+    my $link = first { $_->rel eq $rel && $_->type eq $etype }
+                    @{ $self->session->Link };
+
+    my $entity = $self->get($link->href . $urn);
+    foreach my $e ( @{ $entity->Link } ) {
+        next unless ($e->type eq $type);
+        return $self->get($e->href);
+    }
+}
+
+sub query {
+    my ($self, $q, $element, $class) = @_;
+
+    my $rel = 'down';
+    my $etype = 'application/vnd.vmware.vcloud.query.queryList+xml';
+    my $link = first { $_->rel eq $rel && $_->type eq $etype }
+                    @{ $self->session->Link };
+
+    my $xml = $self->_do_http(GET => $link->href . "?$q");
+    my $data = XMLin($xml, KeyAttr => [], ForceArray => 1);
+    load_class($class);
+
+    my @results;
+    foreach my $h (@{ $data->{$element} }) {
+        push @results, $class->new( %$h, xml_name => $element, vcd_rest => $self );
+    }
+
+    return \@results;
+}
+
 sub delete {
     my ($self, $href) = @_;
 
@@ -194,6 +230,7 @@ sub map_object {
     my ($self, $type, $name, $data) = @_;
 
     my $class = VCD::Schema::TypeMap::get_schema_type($self->api_version, $type);
+    die "Unknown type $type" unless $class;
     load_class($class);
 
     return $class->new( %$data, xml_name => $name, vcd_rest => $self );
@@ -207,6 +244,7 @@ sub map_object_xml {
     my $xml_hash = $data->{$name}->[0];
 
     my $class = VCD::Schema::TypeMap::get_schema_type($self->api_version, $xml_hash->{'type'});
+    die "Unknown type $$xml_hash{type}" unless $class;
     load_class($class);
 
     return $class->new( xml_name => $name, xml_hash => $xml_hash, vcd_rest => $self );
