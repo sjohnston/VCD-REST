@@ -42,6 +42,7 @@ has password => (
 has auth => (
     is       => 'rw',
     isa      => 'Str',
+    clearer  => 'clear_auth',
 );
 
 has user_name => (
@@ -95,6 +96,12 @@ sub url {
 sub BUILD {
     my ($self, $args) = @_;
 
+    $self->login;
+}
+
+sub login {
+    my ($self) = @_;
+
     my $req;
     if ($self->auth) {
         $req = $self->request(POST => $self->url('sessions'));
@@ -137,11 +144,21 @@ sub type {
 sub _do_http {
     my ($self, $method, $url, $content_type, $data) = @_;
 
-    my $req = $self->request($method => $self->url($url));
+    my $retry = 0;
+    my $res;
 
-    $req->content_type($content_type) if ($content_type);
-    $req->content($data) if ($data);
-    my $res = $self->ua->request($req);
+    while ($retry++ <= 1) {
+        my $req = $self->request($method => $self->url($url));
+
+        $req->content_type($content_type) if ($content_type);
+        $req->content($data) if ($data);
+        $res = $self->ua->request($req);
+
+        if ($res->code == 401 || $res->code == 403) {
+            $self->clear_auth;
+            $self->login;
+        }
+    }
 
     unless ($res->is_success) {
         die $res->decoded_content if $res->decoded_content;
