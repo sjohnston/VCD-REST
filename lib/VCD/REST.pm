@@ -167,6 +167,17 @@ sub get {
     return $self->map_object_xml($xml) if ($xml);
 }
 
+sub logout {
+    my ($self) = @_;
+
+    my $req = $self->request(DELETE => $self->session->href);
+    my $res = $self->ua->request($req);
+
+    unless ($res->is_success) {
+        die $res->status_line;
+    }
+}
+
 sub get_entity {
     my ($self, $urn, $type) = @_;
 
