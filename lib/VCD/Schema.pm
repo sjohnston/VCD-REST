@@ -87,17 +87,36 @@ sub has_xml_link {
     $opts{'builder'} = "_build_link_$name";
 
     my $attr = $meta->add_attribute($name, %opts);
-    my $class = $opts{'isa'};
 
-    $meta->add_method( "_build_link_$name" => sub {
-            my $self = shift;
-            my $link = first { $_->{'rel'} eq $rel && $_->{'type'} eq $type }
-                @{ $self->xml_hash->{'{http://www.vmware.com/vcloud/v1.5}Link'} };
+    $meta->add_method( "_build_link_$name" => _make_link_builder($name, $opts{'isa'}, $rel, $type) );
+}
 
-            load_class($class);
-            return $class->new( href => $link->{'href'}, type => $type, vcd_rest => $self->vcd_rest );
+sub _make_link_builder {
+    my ($name, $isa, $rel, $type) = @_;
+
+    return sub {
+        my $self = shift;
+        my $attr = $self->meta->get_attribute($name);
+        my $class = $attr->type_constraint->type_parameter->name;
+        load_class($class);
+
+        my @links;
+        foreach my $link (@{ $self->xml_hash->{'{http://www.vmware.com/vcloud/v1.5}Link'} }) {
+            next unless ( $link->{'rel'} eq $rel && $link->{'type'} eq $type );
+
+            push @links, $class->new( %$link, vcd_rest => $self->vcd_rest );
         }
-    );
+        return \@links;
+    } if ($isa =~ /^ArrayRef/);
+
+    return sub {
+        my $self = shift;
+        my $link = first { $_->{'rel'} eq $rel && $_->{'type'} eq $type }
+            @{ $self->xml_hash->{'{http://www.vmware.com/vcloud/v1.5}Link'} };
+
+        load_class($isa);
+        return $isa->new( href => $link->{'href'}, type => $type, vcd_rest => $self->vcd_rest );
+    };
 }
 
 
