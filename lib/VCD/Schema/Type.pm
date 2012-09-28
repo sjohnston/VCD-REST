@@ -72,17 +72,13 @@ sub to_xml_string {
 }
 
 sub to_xml {
-    my ($self, $doc) = @_;
+    my ($self, $doc, $attr) = @_;
 
     my ($ns, $name) = $self->xml_name =~ m/^\{(.*?)\}(.*)$/;
+    $ns = ($attr && $attr->can('xml_namespace'))?$attr->xml_namespace:'http://www.vmware.com/vcloud/v1.5';
+    $name ||= $self->xml_name;
 
-    my $node;
-    if ($ns) {
-        $node = $doc->createElementNS($ns, $name);
-    }
-    else {
-        $node = $doc->createElementNS('http://www.vmware.com/vcloud/v1.5', $self->xml_name);
-    }
+    my $node = $doc->createElementNS($ns, $name);
 
     foreach my $attr ( $self->get_xml_attributes ) {
         my $type = $attr->type_constraint;
@@ -99,7 +95,7 @@ sub to_xml {
             }
         }
         elsif (eval { $value->can('to_xml') }) {
-            my $child = $value->to_xml($doc);
+            my $child = $value->to_xml($doc, $attr);
             $node->appendChild($child);
         }
         elsif ($attr->can('attr_to_xml')) {
