@@ -158,6 +158,9 @@ sub _do_http {
             $self->clear_auth;
             $self->login;
         }
+        else {
+            last;
+        }
     }
 
     unless ($res->is_success) {
@@ -261,7 +264,7 @@ sub map_object {
     die "Unknown type $type" unless $class;
     load_class($class);
 
-    return $class->new( %$data, xml_name => $name, vcd_rest => $self );
+    return $class->new( %$data, xml_name => $name );
 }
 
 sub map_object_xml {
