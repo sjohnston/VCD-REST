@@ -6,6 +6,8 @@ use VCD::Schema;
 
 extends 'VCD::Schema::VCloud_v1_5::EntityType';
 
+with 'VCD::Roles::VdcType';
+
 has_xml_attr 'status' => (is => 'ro', xml_is_optional => '1', xml_name => 'status', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'AllocationModel' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'StorageCapacity' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::CapacityWithUsageType]', xml_maximum => '1', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
