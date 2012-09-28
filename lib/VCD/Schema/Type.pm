@@ -34,18 +34,34 @@ around BUILDARGS => sub {
     foreach my $attr_name (keys %$args) {
         next if ($attr_name eq 'xml_hash');
         my $arg = $args->{$attr_name};
-        next unless (ref $arg eq 'HASH' && ! blessed $arg);
+        next unless (ref $arg && ! blessed $arg);
 
-        my $attr = $class->meta->get_attribute($attr_name);
+        my $attr = $class->meta->find_attribute_by_name($attr_name);
         next unless ($attr);
-        my $type = $attr->type_constraint->name if ($attr->has_type_constraint);
+        my $type = $attr->type_constraint if ($attr->has_type_constraint);
 
-        if ($type && $type =~ /^Maybe/) {
-            $type = $attr->type_constraint->type_parameter->name;
+        if ($type && $type->name =~ /^Maybe/) {
+            $type = $type->type_parameter;
         }
 
-        load_class($type);
-        $args->{$attr_name} = $type->new(%$arg, xml_name => $attr_name);
+        if ($type && $type->name =~ /^ArrayRef/ && $type->type_parameter->can('class')) {
+
+            my $class = $type->type_parameter->class;
+            load_class($class);
+
+            my @new;
+            foreach my $a (@$arg) {
+                push @new, $class->new(%$a, xml_name => $attr_name);
+            }
+            $args->{$attr_name} = \@new;
+            next;
+        }
+
+        if ($type->can('class')) {
+            my $class = $type->class;
+            load_class($class);
+            $args->{$attr_name} = $class->new(%$arg, xml_name => $attr_name);
+        }
     }
 
     return $args;
