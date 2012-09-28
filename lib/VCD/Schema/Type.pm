@@ -40,14 +40,14 @@ around BUILDARGS => sub {
         next unless ($attr);
         my $type = $attr->type_constraint if ($attr->has_type_constraint);
 
-        if ($type && $type->name =~ /^Maybe/) {
+        if ($type && $type->is_a_type_of('Maybe')) {
             $type = $type->type_parameter;
         }
 
-        if ($type && $type->name =~ /^ArrayRef/ && $type->type_parameter->can('class')) {
-
+        if ($type && $type->is_a_type_of('ArrayRef') && $type->type_parameter->can('class')) {
             my $class = $type->type_parameter->class;
             load_class($class);
+            next unless $class->isa('VCD::Schema::Type');
 
             my @new;
             foreach my $a (@$arg) {
