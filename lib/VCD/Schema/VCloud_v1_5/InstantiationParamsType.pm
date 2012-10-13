@@ -6,7 +6,9 @@ use VCD::Schema;
 
 extends 'VCD::Schema::VCloud_v1_5::VCloudExtensibleType';
 
-has_xml 'Section' => (is => 'rw', isa => 'ArrayRef[Str]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml 'Section' => (is => 'rw', isa => 'ArrayRef[VCD::Schema::External::OVF::Section_Type]', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml 'NetworkConnectionSection' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::NetworkConnectionSectionType]', xml_maximum => '1', xml_minimum => '0');
+has_xml 'NetworkConfigSection' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::NetworkConfigSectionType]', xml_maximum => '1', xml_minimum => '0');
 
 
 __PACKAGE__->meta->make_immutable;
