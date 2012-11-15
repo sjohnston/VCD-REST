@@ -7,8 +7,8 @@ use VCD::Schema;
 extends 'VCD::Schema::Type';
 
 has_xml_attr 'observationDate' => (is => 'ro', xml_name => 'observationDate', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
-has_xml 'ManagedServerMetrics' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::Extension::LicensingReportSampleType_ManagedServerMetrics]', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
-has_xml 'VirtualMachineMetrics' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::Extension::LicensingReportSampleType_VirtualMachineMetrics]', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
+has_xml 'ManagedServerMetrics' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::Extension::LicensingReportSampleTypeManagedServerMetrics]', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
+has_xml 'VirtualMachineMetrics' => (is => 'ro', isa => 'Maybe[VCD::Schema::VCloud_v1_5::Extension::LicensingReportSampleTypeVirtualMachineMetrics]', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
 
 
 __PACKAGE__->meta->make_immutable;

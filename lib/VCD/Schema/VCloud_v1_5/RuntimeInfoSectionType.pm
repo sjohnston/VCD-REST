@@ -4,9 +4,9 @@ use Moose;
 
 use VCD::Schema;
 
-extends 'VCD::Schema::External::OVF::Section_Type';
+extends 'VCD::Schema::External::OVF::SectionType';
 
-has_xml 'VMWareTools' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::RuntimeInfoSectionType_VMWareTools]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'VMWareTools' => (is => 'rw', isa => 'Maybe[VCD::Schema::VCloud_v1_5::RuntimeInfoSectionTypeVMWareTools]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
 
 __PACKAGE__->meta->make_immutable;
