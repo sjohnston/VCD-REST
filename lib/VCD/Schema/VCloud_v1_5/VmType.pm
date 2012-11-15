@@ -10,6 +10,19 @@ has_xml_attr 'needsCustomization' => (is => 'ro', xml_is_optional => '1', xml_na
 has_xml 'VAppScopedLocalId' => (is => 'ro', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'Environment' => (is => 'rw', isa => 'Maybe[Str]', xml_maximum => '1', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/environment/1');
 
+has_xml 'GuestCustomizationSection' => (
+    is => 'rw',
+    isa => 'VCD::Schema::VCloud_v1_5::GuestCustomizationSectionType',
+    xml_maximum => '1', xml_minimum => '0',
+    xml_namespace => 'http://www.vmware.com/vcloud/v1.5',
+);
+
+has_xml 'OperatingSystemSection' => (
+    is => 'rw',
+    isa => 'VCD::Schema::External::OVF::OperatingSystemSection_Type',
+    xml_maximum => '1', xml_minimum => '0',
+    xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1',
+);
 
 __PACKAGE__->meta->make_immutable;
 
