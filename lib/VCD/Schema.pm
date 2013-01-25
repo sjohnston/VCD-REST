@@ -11,7 +11,8 @@ Moose::Exporter->setup_import_methods(
     },
 );
 
-sub has_xml {
+sub _xml {
+    my $trait = shift;
     my $meta = shift;
     my $name = shift;
     my %opts = @_;
@@ -22,7 +23,8 @@ sub has_xml {
     $opts{'lazy'} = 1;
     $opts{'builder'} = "_build_$name";
     $opts{'predicate'} = "has_$name";
-    $opts{'traits'} ||= ['VCD::Schema::Element'];
+    $opts{'traits'} ||= [ ];
+    push(@{ $opts{'traits'} }, $trait);
 
     my $attr = $meta->add_attribute($name, %opts);
 
@@ -31,8 +33,12 @@ sub has_xml {
     $meta->add_method( "_build_$name" => _make_builder($attr, $xml_name, $name) );
 }
 
+sub has_xml {
+    _xml('VCD::Schema::Element', @_);
+}
+
 sub has_xml_attr {
-    has_xml(@_, traits => ['VCD::Schema::Attribute']);
+    _xml('VCD::Schema::Attribute', @_);
 }
 
 sub _make_builder {
