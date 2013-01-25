@@ -199,8 +199,13 @@ sub logout {
 }
 
 sub get_entity {
-    my ($self, $urn, $type) = @_;
+    my $self = shift;
 
+    return $self->get($self->get_entity_href(@_));
+}
+
+sub get_entity_href {
+    my ($self, $urn, $type) = @_;
     my $rel = 'entityResolver';
     my $etype = 'application/vnd.vmware.vcloud.entity+xml';
     my $link = first { $_->rel eq $rel && $_->type eq $etype }
@@ -209,7 +214,7 @@ sub get_entity {
     my $entity = $self->get($link->href . $urn);
     foreach my $e ( @{ $entity->Link } ) {
         next unless ($e->type eq $type);
-        return $self->get($e->href);
+        return $e->href;
     }
 }
 
