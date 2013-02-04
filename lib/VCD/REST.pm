@@ -104,7 +104,7 @@ sub login {
 
     my $req;
     if ($self->auth) {
-        $req = $self->request(POST => $self->url('sessions'));
+        $req = $self->request(GET => $self->url('session'));
     }
     else {
         $req = HTTP::Request->new(POST => $self->url('sessions'));
@@ -177,6 +177,12 @@ sub get_hash {
     my $xml = $self->_do_http(GET => $href);
 
     return XMLin($xml, NsExpand => 1, KeyAttr => [], KeepRoot => 1, ForceArray => 1);
+}
+
+sub get_xml {
+    my ($self, $href) = @_;
+
+    return $self->_do_http(GET => $href);
 }
 
 sub get {
