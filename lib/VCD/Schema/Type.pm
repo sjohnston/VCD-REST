@@ -149,13 +149,21 @@ sub post_link {
     my ($self, $rel, $type, $xml_name, $data) = @_;
 
     my $links = $self->Link;
-    my $link = first { $_->rel eq $rel && $_->type eq $type } @{ $self->Link };
+
+    if (defined $type) {
+        my $link = first { $_->rel eq $rel && $_->type eq $type } @{ $self->Link };
+
+        die "Can't find link" unless ($link);
+
+        my $obj = $self->vcd_rest->map_object($type, $xml_name, $data);
+
+        return $self->vcd_rest->post($link->href, $type, $obj->to_xml_string);
+    }
+
+    my $link = first { $_->rel eq $rel } @{ $self->Link };
 
     die "Can't find link" unless ($link);
-
-    my $obj = $self->vcd_rest->map_object($type, $xml_name, $data);
-
-    return $self->vcd_rest->post($link->href, $type, $obj->to_xml_string);
+    return $self->vcd_rest->post($link->href);
 }
 
 1;
