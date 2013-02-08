@@ -166,4 +166,21 @@ sub post_link {
     return $self->vcd_rest->post($link->href);
 }
 
+sub follow_link {
+    my ($self, $rel, $type) = @_;
+
+    my $links = $self->Link;
+
+    my $link;
+    if (defined $type) {
+        $link = first { $_->rel eq $rel && $_->type eq $type } @{ $self->Link };
+    }
+    else {
+        $link = first { $_->rel eq $rel } @{ $self->Link };
+    }
+
+    die "Can't find link" unless ($link);
+    return $self->vcd_rest->get($link->href);
+}
+
 1;
