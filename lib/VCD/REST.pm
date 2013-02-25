@@ -284,9 +284,10 @@ sub map_object_xml {
     my $data = XMLin($xml, NsExpand => 1, KeyAttr => [], KeepRoot => 1, ForceArray => 1);
     my ($name) = keys %$data;
     my $xml_hash = $data->{$name}->[0];
+    my $type = $xml_hash->{'type'} || $xml_hash->{'{http://www.vmware.com/vcloud/v1.5}type'};
 
-    my $class = VCD::Schema::TypeMap::get_schema_type($self->api_version, $xml_hash->{'type'});
-    die "Unknown type $$xml_hash{type}" unless $class;
+    my $class = VCD::Schema::TypeMap::get_schema_type($self->api_version, $type);
+    die "Unknown type $type" unless $class;
     load_class($class);
 
     return $class->new( xml_name => $name, xml_hash => $xml_hash, vcd_rest => $self );
