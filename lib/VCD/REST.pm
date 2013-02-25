@@ -67,7 +67,7 @@ sub _build_ua {
     $ua->default_header('Accept' => 'application/*+xml;version=' . $self->api_version);
 
     if ($self->debug) {
-        $ua->add_handler("request_send",  sub { shift->dump; return });
+        $ua->add_handler("request_send",  sub { shift->dump(maxlength => 0); return });
         $ua->add_handler("response_done", sub { shift->dump; return });
     }
 
