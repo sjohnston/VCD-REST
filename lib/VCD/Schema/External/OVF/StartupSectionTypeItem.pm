@@ -6,13 +6,13 @@ use VCD::Schema;
 
 extends 'VCD::Schema::Type';
 
-has_xml_attr 'id' => (is => 'rw', xml_name => 'id', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
-has_xml_attr 'order' => (is => 'rw', xml_name => 'order', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
-has_xml_attr 'startDelay' => (is => 'rw', xml_is_optional => '1', xml_name => 'startDelay', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
-has_xml_attr 'waitingForGuest' => (is => 'rw', xml_is_optional => '1', xml_name => 'waitingForGuest', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
-has_xml_attr 'stopDelay' => (is => 'rw', xml_is_optional => '1', xml_name => 'stopDelay', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
-has_xml_attr 'startAction' => (is => 'rw', xml_is_optional => '1', xml_name => 'startAction', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
-has_xml_attr 'stopAction' => (is => 'rw', xml_is_optional => '1', xml_name => 'stopAction', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml_attr 'id' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml_attr 'order' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml_attr 'startDelay' => (is => 'rw', xml_is_optional => '1', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml_attr 'waitingForGuest' => (is => 'rw', xml_is_optional => '1', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml_attr 'stopDelay' => (is => 'rw', xml_is_optional => '1', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml_attr 'startAction' => (is => 'rw', xml_is_optional => '1', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml_attr 'stopAction' => (is => 'rw', xml_is_optional => '1', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 
 
 __PACKAGE__->meta->make_immutable;
