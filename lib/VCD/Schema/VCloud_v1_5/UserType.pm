@@ -6,12 +6,12 @@ use VCD::Schema;
 
 extends 'VCD::Schema::VCloud_v1_5::EntityType';
 
-has_xml 'FullName' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'EmailAddress' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'Telephone' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'FullName' => (is => 'rw', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'EmailAddress' => (is => 'rw', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'Telephone' => (is => 'rw', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'IsEnabled' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'IsLocked' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
-has_xml 'IM' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
+has_xml 'IM' => (is => 'rw', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'NameInSource' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'IsAlertEnabled' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 has_xml 'AlertEmailPrefix' => (is => 'rw', isa => 'Maybe[Str]', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
