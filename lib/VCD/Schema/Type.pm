@@ -106,8 +106,10 @@ sub to_xml {
 
         if (ref $value eq 'ARRAY') {
             foreach my $c (@$value) {
-                my $child = $c->to_xml($doc);
-                $node->appendChild($child);
+                if (blessed $c) {
+                    my $child = $c->to_xml($doc);
+                    $node->appendChild($child);
+                }
             }
         }
         elsif (eval { $value->can('to_xml') }) {
@@ -148,8 +150,6 @@ sub delete {
 sub post_link {
     my ($self, $rel, $type, $xml_name, $data) = @_;
 
-    my $links = $self->Link;
-
     if (defined $type) {
         my $link = first { $_->rel eq $rel && $_->type eq $type } @{ $self->Link };
 
@@ -157,6 +157,7 @@ sub post_link {
 
         my $obj = $self->vcd_rest->map_object($type, $xml_name, $data);
 
+        warn $obj->to_xml_string;
         return $self->vcd_rest->post($link->href, $type, $obj->to_xml_string);
     }
 
@@ -168,8 +169,6 @@ sub post_link {
 
 sub follow_link {
     my ($self, $rel, $type) = @_;
-
-    my $links = $self->Link;
 
     my $link;
     if (defined $type) {

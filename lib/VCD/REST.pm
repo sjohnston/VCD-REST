@@ -8,6 +8,7 @@ use LWP::UserAgent;
 use Class::Load qw(load_class);
 use List::Util qw(first);
 use VCD::Schema::TypeMap;
+use VCD::Schema::VCloud_v1_5::ErrorType;
 
 has ua => (
     is       => 'ro',
@@ -164,7 +165,11 @@ sub _do_http {
     }
 
     unless ($res->is_success) {
-        die $res->decoded_content if $res->decoded_content;
+        if ($res->decoded_content =~ /<Error/) {
+            my $data = XMLin($res->decoded_content);
+
+            die VCD::Schema::VCloud_v1_5::ErrorType->new( xml_name => 'Error', xml_hash => $data, vcd_rest => $self );
+        }
         die $res->status_line;
     }
 
