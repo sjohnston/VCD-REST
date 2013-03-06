@@ -168,7 +168,8 @@ sub _do_http {
         if ($res->decoded_content =~ /<Error/) {
             my $data = XMLin($res->decoded_content);
 
-            die VCD::Schema::VCloud_v1_5::ErrorType->new( xml_name => 'Error', xml_hash => $data, vcd_rest => $self );
+            my $error = VCD::Schema::VCloud_v1_5::ErrorType->new( xml_name => 'Error', xml_hash => $data, vcd_rest => $self );
+            die $error->message;
         }
         die $res->status_line;
     }
