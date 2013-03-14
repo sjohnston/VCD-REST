@@ -6,7 +6,7 @@ use VCD::Schema;
 
 extends 'VCD::Schema::External::OVF::SectionType';
 
-has_xml_attr 'id' => (is => 'rw', xml_name => 'id', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
+has_xml_attr 'id' => (is => 'rw', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml_attr 'version' => (is => 'rw', xml_is_optional => '1', xml_name => 'version', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 has_xml 'Description' => (is => 'rw', xml_minimum => '0', xml_namespace => 'http://schemas.dmtf.org/ovf/envelope/1');
 
