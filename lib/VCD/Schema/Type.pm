@@ -157,7 +157,6 @@ sub post_link {
 
         my $obj = $self->vcd_rest->map_object($type, $xml_name, $data);
 
-        warn $obj->to_xml_string;
         return $self->vcd_rest->post($link->href, $type, $obj->to_xml_string);
     }
 
