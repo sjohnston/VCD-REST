@@ -8,6 +8,8 @@ extends 'VCD::Schema::Type';
 
 has_xml_attr 'required' => (is => 'rw', xml_is_optional => '1', xml_name => 'required', xml_namespace => 'http://www.vmware.com/vcloud/v1.5');
 
+has_xml 'VimObjectRef' => (is => 'ro', isa => 'VCD::Schema::VCloud_v1_5::Extension::VimObjectRefType', xml_maximum => 'unbounded', xml_minimum => '0', xml_namespace => 'http://www.vmware.com/vcloud/extension/v1.5');
+
 
 __PACKAGE__->meta->make_immutable;
 
